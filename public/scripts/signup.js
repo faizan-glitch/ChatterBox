@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+  let displayNameField = document.getElementById('displayNameField');
   let emailField = document.getElementById('emailField');
   let passwordField = document.getElementById('passwordField');
   let signupBtn = document.getElementById('signupBtn');
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
       },
       credentials: 'same-origin', 
       body: JSON.stringify({
+        displayName: displayNameField.value,
         email: emailField.value,
         password: passwordField.value
       })

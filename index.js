@@ -44,6 +44,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(AppRoutes);
 app.use(AuthRoutes);
 
+// app.use()
+
 // Use Auth API
 app.use('/auth', AuthAPI);
 

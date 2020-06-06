@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   displayName: {
     type: String,
-    default: 'John Doe', 
+    required: true
   },
   email: {
     type: String,
@@ -17,7 +17,7 @@ const userSchema = new Schema({
   },
   createdAt: {
     type: Date,
-    default: Date.now() 
+    default: Date.now()
   },
   verified: {
     type: Boolean,
