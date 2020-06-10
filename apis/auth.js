@@ -32,9 +32,9 @@ router.post('/signup', (req, res) => {
     .catch(err => console.log(err));
 });
 
-router.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login' }),
+router.post('/login', 
+  passport.authenticate('local'),
   (req, res) => {
     console.log(res);
-  }
-);
+    res.redirect('/about');
+  });

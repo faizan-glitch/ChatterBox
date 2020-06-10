@@ -18,6 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         email: emailField.value,
         password: passwordField.value
       })
-    });
+    })
   });
 });

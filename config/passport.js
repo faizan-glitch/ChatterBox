@@ -11,21 +11,19 @@ export default (passport) => {
         .then(user => {
           if (!user) {
             console.log('email not registered');
-            done(null, false, {
-              message: 'The email is not registered'
-            });
+            return done(null, false, { message: 'This email is not registered.' });
           }
           bcrypt.compare(password, user.password)
             .then(isMatch => {
               if (isMatch) {
+                console.log(user);
                 console.log('login successful')
-                done(null, user);
+                return done(null, user, { message: 'Login successful.' });
               }
               else {
+                console.log(user)
                 console.log('password incorrect');
-                done(null, false, {
-                  message: 'Password Incorrect'
-                });
+                return done(null, false, { message: 'Password is incorrect. ' });
               }
             });
         })
@@ -38,7 +36,7 @@ export default (passport) => {
   });
 
   passport.deserializeUser((id, done) => {
-    User.findById(id, (err, done) => {
+    User.findById(id, (err, user) => {
       done(err, user);
     });
   });
