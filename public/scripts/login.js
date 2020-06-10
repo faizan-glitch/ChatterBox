@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
       .then(res => {
-        if(res.status == 200) {
-          window.location.assign(res.url)
+        if (res.status == 200) {
+          window.location.assign(res.url);
         }
       });
   });

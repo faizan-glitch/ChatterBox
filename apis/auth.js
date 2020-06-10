@@ -2,7 +2,9 @@ import Express from 'express';
 import { User } from '../models/User.js';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
+import path from 'path'
 
+const __dirname = path.resolve
 export const router = Express.Router();
 
 router.post('/signup', (req, res) => {
@@ -35,6 +37,5 @@ router.post('/signup', (req, res) => {
 router.post('/login', 
   passport.authenticate('local'),
   (req, res) => {
-    console.log(res);
-    res.redirect('/about');
+    res.redirect('/app');
   });
