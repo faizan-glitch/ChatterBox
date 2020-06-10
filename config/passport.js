@@ -11,19 +11,18 @@ export default (passport) => {
         .then(user => {
           if (!user) {
             console.log('email not registered');
-            return done(null, false, { message: 'This email is not registered.' });
+            return done(null, false, { message: 'This email is not registered.', status: 401 });
           }
           bcrypt.compare(password, user.password)
             .then(isMatch => {
               if (isMatch) {
-                console.log(user);
-                console.log('login successful')
-                return done(null, user, { message: 'Login successful.' });
+                // console.log(user);
+                // console.log('login successful')
+                return done(null, user, { message: 'Login successful.', status: 200 });
               }
               else {
-                console.log(user)
                 console.log('password incorrect');
-                return done(null, false, { message: 'Password is incorrect. ' });
+                return done(null, false, { message: 'Password is incorrect. ', status: 403 });
               }
             });
         })
