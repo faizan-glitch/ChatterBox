@@ -13,6 +13,10 @@ export default (passport) => {
             console.log('email not registered');
             return done(null, false, { message: 'This email is not registered.', status: 401 });
           }
+          if(!user.verified) {
+            console.log('User not verified');
+            return done(null, false, { message: 'Please verify your email first.', status: 401 });
+          }
           bcrypt.compare(password, user.password)
             .then(isMatch => {
               if (isMatch) {
