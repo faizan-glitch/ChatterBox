@@ -84,3 +84,22 @@ router.get('/verify', (req, res) => {
       res.status(401).send('Failed');
     });
 });
+
+
+router.get('/logout', (req, res) => {
+  User.updateOne(
+    { _id: req.user._id },
+    {
+      $set: {
+        "signedIn": "false"
+      }
+    }
+    )
+    .then(user => {
+      if (user) {
+        req.user = null;
+        res.status(200).redirect('/');
+      }
+    })
+    .catch(err => console.log(err));
+});
