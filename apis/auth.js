@@ -2,13 +2,11 @@ import Express from 'express';
 import { User } from '../models/User.js';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
-import path from 'path'
-import keys from '../config/keys.js';
-import transporter from '../services/email/nodemailer.js';
-
-const __dirname = path.resolve
+import { transporter, accountVerificationEmail } from '../services/email/nodemailer.js';
 
 export const router = Express.Router();
+
+const verificationURL = "http://localhost:5000/auth/verify/";
 
 router.post('/signup', (req, res) => {
   User.findOne({ email: req.body.email })
@@ -17,14 +15,13 @@ router.post('/signup', (req, res) => {
         console.log('This email is already registered.');
         return;
       }
-
-      const accountVerificationEmail = {
-        from: keys.NODE_MAILER.Service.gmail.email, 
-        to: req.body.email, 
-        subject: 'Verify Account', 
-        html: '<p>This is a test email here</p>'
-      };
-
+      accountVerificationEmail.to = req.body.email;
+      const verificationMessage = `
+        <p>Click this <a href="${verificationURL + '?_email=' + req.body.email}">Link</a> to verify your account.</p>
+        <p>This is an automated email sent by ChatterBox</p>
+        <p>Ignore this email if you didn't create an account</p>
+      `;
+      accountVerificationEmail.html = verificationMessage;
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
           const user = new User({
@@ -35,7 +32,6 @@ router.post('/signup', (req, res) => {
           user.save()
             .then(user => {
               if (user) {
-                console.log(user);
                 transporter.sendMail(accountVerificationEmail, (err, info) => {
                   if (err) {
                     console.log("This is err");
@@ -60,3 +56,23 @@ router.post('/login',
   (req, res) => {
     res.redirect('/app');
   });
+
+router.get('/verify', (req, res) => {
+  User.updateOne(
+    { email: req.query._email },
+    {
+      $set: {
+        "verified": "true",
+        "verifiedAt": Date.now()
+      }
+    },
+  )
+    .then(user => {
+      console.log(user);
+      res.status(200).send('Done');
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(401).send('Failed');
+    });
+});
