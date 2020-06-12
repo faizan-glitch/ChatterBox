@@ -8,9 +8,9 @@ A web app for realtime communication written using Socket IO that uses Nodejs as
          curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
          sudo apt-get install nodejs
         ```
-2. Clone the [Github Repo](https://github.com/faizan-glitch/Electron-JS-Password-Manager.git)
+2. Clone the [Github Repo](https://github.com/faizan-glitch/ChatterBox.git)
   ```properties
-  git clone https://github.com/faizan-glitch/Electron-JS-Password-Manager.git
+  git clone https://github.com/faizan-glitch/ChatterBox.git
   ```
 3. Go into the local copy of the repo.
 ### Installing Dependencies
