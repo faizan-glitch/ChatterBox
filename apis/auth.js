@@ -94,7 +94,7 @@ router.get('/logout', (req, res) => {
         "signedIn": "false"
       }
     }
-    )
+  )
     .then(user => {
       if (user) {
         req.user = null;
