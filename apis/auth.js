@@ -2,11 +2,17 @@ import Express from 'express';
 import { User } from '../models/User.js';
 import bcrypt from 'bcrypt';
 import passport from 'passport';
+import csrf from 'csurf';
 import { transporter, accountVerificationEmail } from '../services/email/nodemailer.js';
+import session from 'express-session';
 
 export const router = Express.Router();
 
 const verificationURL = "http://localhost:5000/auth/verify/";
+
+const csrfProtection = csrf();
+
+router.use(csrfProtection);
 
 router.post('/signup', (req, res) => {
   User.findOne({ email: req.body.email })
@@ -16,22 +22,24 @@ router.post('/signup', (req, res) => {
         return;
       }
       accountVerificationEmail.to = req.body.email;
-      const verificationMessage = `
-        <p>Click this <a href="${verificationURL + '?_email=' + req.body.email}">Link</a> to verify your account.</p>
-        <p>This is an automated email sent by ChatterBox</p>
-        <p>Ignore this email if you didn't create an account</p>
-      `;
-      accountVerificationEmail.html = verificationMessage;
+
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
           const user = new User({
             displayName: req.body.displayName,
             email: req.body.email,
-            password: hash
+            password: hash,
+            accessToken: req.session.id
           });
           user.save()
             .then(user => {
               if (user) {
+                const verificationMessage = `
+                <p>Click this <a href="${verificationURL + '?_token=' + user.accessToken}">Link</a> to verify your account.</p>
+                <p>This is an automated email sent by ChatterBox</p>
+                <p>Ignore this email if you didn't create an account</p>
+              `;
+                accountVerificationEmail.html = verificationMessage;
                 transporter.sendMail(accountVerificationEmail, (err, info) => {
                   if (err) {
                     console.log("This is err");
@@ -58,8 +66,9 @@ router.post('/login',
   });
 
 router.get('/verify', (req, res) => {
+  console.log(req.query._token);
   User.updateOne(
-    { email: req.query._email },
+    { accessToken: req.query._token },
     {
       $set: {
         "verified": "true",

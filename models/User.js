@@ -34,6 +34,10 @@ const userSchema = new Schema({
   authProvider: {
     type: String,
     default: 'email/password' 
+  },
+  accessToken: {
+    type: String,
+    required: true
   }
 });
 
