@@ -25,17 +25,6 @@ router.post('/signup', (req, res) => {
         html: '<p>This is a test email here</p>'
       };
 
-      transporter.sendMail(accountVerificationEmail, (err, info) => {
-        if (err) {
-          console.log("This is err");
-          console.log(err);
-        }
-        else {
-          console.log("This is info");
-          console.log(info);
-        }
-      });
-
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
           const user = new User({
@@ -47,6 +36,16 @@ router.post('/signup', (req, res) => {
             .then(user => {
               if (user) {
                 console.log(user);
+                transporter.sendMail(accountVerificationEmail, (err, info) => {
+                  if (err) {
+                    console.log("This is err");
+                    console.log(err);
+                  }
+                  else {
+                    console.log("This is info");
+                    console.log(info);
+                  }
+                });
               }
             })
             .catch(err => console.log(err));

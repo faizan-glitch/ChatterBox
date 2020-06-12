@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import { keys } from '../../config/keys.js';
+import keys from '../../config/keys.js';
 
 // Create a transporter for nodemailer
 const transporter = nodemailer.createTransport({

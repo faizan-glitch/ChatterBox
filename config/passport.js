@@ -16,8 +16,6 @@ export default (passport) => {
           bcrypt.compare(password, user.password)
             .then(isMatch => {
               if (isMatch) {
-                // console.log(user);
-                // console.log('login successful')
                 return done(null, user, { message: 'Login successful.', status: 200 });
               }
               else {

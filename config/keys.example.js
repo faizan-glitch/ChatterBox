@@ -1,4 +1,4 @@
-export const keys = {
+const keys = {
   SessionSecret: '',
   MONGODB: {
     username: '',
@@ -14,3 +14,5 @@ export const keys = {
     }
   }
 };
+
+export default keys;
