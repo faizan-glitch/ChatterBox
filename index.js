@@ -2,7 +2,7 @@ import Express from 'express';
 import { router as AppRoutes } from './routes/index.js';
 import { router as AuthRoutes } from './routes/auth.js';
 import { router as AuthAPI } from './apis/auth.js';
-import { keys } from './config/keys.js';
+import keys  from './config/keys.js';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
@@ -56,8 +56,10 @@ app.use(AuthRoutes);
 app.use('/auth', AuthAPI);
 
 // Connect with MongoDB
-mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// console.log(keys.MONGODB.URI)
+mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true})
   .then(res => {
+    console.log(res);
     app.listen(PORT, console.log(`Server running on port: ${PORT}`));
   })
   .catch(err => console.log(err));

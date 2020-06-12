@@ -4,5 +4,13 @@ export const keys = {
     username: '',
     password: '',
     URI: ''
+  },
+  NODE_MAILER: {
+    Service: {
+      gmail: {
+        email: '',
+        password: ''
+      }
+    }
   }
 };
