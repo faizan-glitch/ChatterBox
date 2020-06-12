@@ -9,11 +9,11 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true, 
+    required: true,
   },
   password: {
     type: String,
-    required: true, 
+    required: true,
   },
   createdAt: {
     type: Date,
@@ -21,19 +21,19 @@ const userSchema = new Schema({
   },
   verified: {
     type: Boolean,
-    default: false, 
+    default: false,
   },
   verifiedAt: {
     type: Date,
-    default: null, 
+    default: null,
   },
   signedIn: {
     type: Boolean,
-    default: false, 
+    default: false,
   },
   authProvider: {
     type: String,
-    default: 'email/password' 
+    default: 'email/password'
   },
   accessToken: {
     type: String,

@@ -13,14 +13,22 @@ export default (passport) => {
             console.log('email not registered');
             return done(null, false, { message: 'This email is not registered.', status: 401 });
           }
-          if(!user.verified) {
+          if (!user.verified) {
             console.log('User not verified');
             return done(null, false, { message: 'Please verify your email first.', status: 401 });
           }
           bcrypt.compare(password, user.password)
             .then(isMatch => {
               if (isMatch) {
-                return done(null, user, { message: 'Login successful.', status: 200 });
+                user.updateOne(
+                  {
+                    $set: {
+                      signedIn: true
+                    }
+                  }
+                ).then(response => {
+                  return done(null, user, { message: 'Login successful.', status: 200 });
+                });
               }
               else {
                 console.log('password incorrect');

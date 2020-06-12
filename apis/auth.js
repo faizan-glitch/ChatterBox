@@ -4,7 +4,6 @@ import bcrypt from 'bcrypt';
 import passport from 'passport';
 import csrf from 'csurf';
 import { transporter, accountVerificationEmail } from '../services/email/nodemailer.js';
-import session from 'express-session';
 
 export const router = Express.Router();
 
@@ -66,7 +65,7 @@ router.post('/login',
   });
 
 router.get('/verify', (req, res) => {
-  console.log(req.query._token);
+  ;
   User.updateOne(
     { accessToken: req.query._token },
     {
