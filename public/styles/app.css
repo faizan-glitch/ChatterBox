@@ -14,3 +14,10 @@ body{
 .full-nav{
   height: 88%; /* vertical height minus height of navbar*/
 }
+
+.mainpage{ flex-direction: row-reverse; height: 100vh; align-items: center; padding-top: 1rem;}
+
+@media only screen and (max-width: 800px) {
+  .message{ width: 90%; }
+  .mainpage{ flex-direction: column;}
+}
