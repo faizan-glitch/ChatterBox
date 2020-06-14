@@ -65,7 +65,6 @@ router.post('/login',
   });
 
 router.get('/verify', (req, res) => {
-  ;
   User.updateOne(
     { accessToken: req.query._token },
     {
@@ -97,7 +96,7 @@ router.get('/logout', (req, res) => {
   )
     .then(user => {
       if (user) {
-        req.user = null;
+        req.logout();
         res.status(200).redirect('/');
       }
     })
