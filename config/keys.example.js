@@ -6,7 +6,7 @@ const keys = {
     URI: ''
   },
   NODE_MAILER: {
-    gmail: {
+    GMAIL: {
       email: '',
       password: ''
     }
