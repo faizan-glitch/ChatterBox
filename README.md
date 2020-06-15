@@ -21,7 +21,7 @@ Type the following command in the terminal
 ### Setting the App Key
 1. Go to **config** folder.
 2. Replace the **keys.example.js** with the **keys.js** file. 
-### Configuring NodeMailer
+### Configuring the Gmail Account to send emails
 By default Google considers third party apps using its services as **"Less Secure"** apps. And doesn't allow access to them. 
 To give access to this app.
 1. Go into the account settings of the gmail account you used in the keys.js
