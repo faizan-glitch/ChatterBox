@@ -11,7 +11,7 @@ const logoutController =  (req, res) => {
   )
     .then(user => {
       if (user) {
-        req.user = null;
+        req.logout();
         res.status(200).redirect('/');
       }
     })
