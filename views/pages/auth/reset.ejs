@@ -1,0 +1,33 @@
+<%- include('../../includes/head') %>
+</head>
+
+<body style='height: 100vh !important'>
+  <%- include('../../partials/navbar') %>
+  <div class='container d-flex justify-content-center align-items-center h-75'>
+    <div class='card'>
+      <div class='card-header'>
+        Forgot your password?
+      </div>
+      <div class='card-body '>
+        <h5 class='card-title'>Reset</h5>
+        <form>
+          <div class='form-group row'>
+            <label for='emailField' class='col-sm-3 col-form-label'>Email</label>
+            <div class='col-sm-9'>
+              <input type='email' class='form-control bg-secondary text-white' id='emailField' value='' name='email'>
+            </div>
+          </div>
+        </form>
+        <div class='d-flex justify-content-center w-100'>
+          <button type='submit' class='btn btn-success w-100' id='resetBtn'> Reset </button>
+        </div>
+<!-- 
+        <div class="text-center mt-2">
+          <p>Already have an account? <a href="/login">Login</a></p>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</body>
+<%- include('../../includes/end') %>
+<script src="scripts/reset.js"></script>

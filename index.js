@@ -1,7 +1,7 @@
 import Express from 'express';
 import { router as AppRoutes } from './routes/index.js';
 import { router as AuthRoutes } from './routes/auth.js';
-import { router as AuthAPI } from './apis/auth.js';
+import { router as AuthAPI } from './apis/auth/auth.js';
 import keys from './config/keys.js';
 import session from 'express-session';
 import bodyParser from 'body-parser';

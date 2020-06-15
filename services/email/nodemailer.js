@@ -5,14 +5,15 @@ import keys from '../../config/keys.js';
 export const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: keys.NODE_MAILER.Service.gmail.email,
-    pass: keys.NODE_MAILER.Service.gmail.password
+    user: keys.NODE_MAILER.GMAIL.email,
+    pass: keys.NODE_MAILER.GMAIL.password
   }
 });
 
-export const accountVerificationEmail = {
-  from: keys.NODE_MAILER.Service.gmail.email,
+export const Email = {
+  from: keys.NODE_MAILER.GMAIL.email,
   to: '',
-  subject: 'Verify Account',
+  subject: '',
   html: ''
 };
+
