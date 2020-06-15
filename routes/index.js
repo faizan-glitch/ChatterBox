@@ -1,6 +1,7 @@
 import Express from 'express';
 import csrf from 'csurf';
 import path from 'path';
+import authGuard from '../services/auth/authGuard.js';
 
 export const router = Express.Router();
 
@@ -9,15 +10,6 @@ const __dirname = path.resolve();
 const csrfProtection = csrf();
 
 router.use(csrfProtection);
-
-let authGuard = (req, res, next) => {
-  if (!req.isAuthenticated()) {
-    res.status(403).redirect('/login');
-  }
-  else {
-    next();
-  }
-};
 
 router.get('/', (req, res) => {
   res.render(path.join(__dirname, 'views', 'pages', 'home'), {
