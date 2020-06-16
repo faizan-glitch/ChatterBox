@@ -27,7 +27,7 @@
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 b-r" >
         <div class="online-users">
 
-          <div class="online" id=""><i class="dot">.....</i>User1</div>
+          <% include ('../partials/useronline') %>
 
         </div>
       </div>
@@ -38,10 +38,7 @@
         <!-- messages -->
         <div class="d-flex flex-column messages">
           
-          <div class="">User:
-            <p class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <i class="time">9:30 Am</i>
-          </div>
+          <% include ('../partials/message') %>
 
         </div>
 
