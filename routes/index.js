@@ -45,3 +45,11 @@ router.post('/test', (req, res) => {
 });
 
 
+// For testing
+router.get('/chatroom', (req, res) => {
+  res.render(path.join(__dirname, 'views', 'pages', 'chatroom'), {
+    activeTab: '',
+    csrfToken: req.csrfToken()
+  });
+});
+
