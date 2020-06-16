@@ -1,7 +1,69 @@
-<!-- On successful Login this is the page that the user will be redirectd to. -->
+<%- include('../includes/head') %> 
+</head>
 
-<h1>This is the app page</h1>
-<p>This will be the whole area where user can chat and stuff</p>
-<%= csrfToken %>
-<hr>
-<%= user %> 
+<body>
+  <%- include('../partials/navbar') %> 
+
+  <div class="container">
+    <div class="">
+      <div class="col text-center">
+        <br>
+
+        <div class="d-flex justify-content-center">
+          <div class="col-md-8 col-lg-6 col-sm-11">
+            <!-- img here -->
+            <img src="assets/images/ideas.svg" />
+        </div>
+        </div>
+        <br>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Create new Chatroom
+        </button>
+        <br><br>
+
+        <input class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for chatrooms.." aria-label="Search">
+
+        <ul class="list-unstyled" id="chatrooms">
+          <li><a href="#">Adele</a></li>
+          <li><a href="#">Agnes</a></li>
+
+          <li><a href="#">Billy</a></li>
+          <li><a href="#">Bob</a></li>
+
+          <li><a href="#">Calvin</a></li>
+          <li><a href="#">Christina</a></li>
+          <li><a href="#">Cindy</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="createchatroom" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createchatroom">Create Chatroom</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <!-- form -->
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end Modal -->
+
+</body>
+
+<%- include('../includes/end') %>
+<script src="scripts/app.js"></script>
