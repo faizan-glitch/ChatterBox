@@ -1,22 +1,19 @@
-/* *{
-  max-width: 100%;
-  max-height: 100%;
+*{
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  color: white;
+  /* color: white; */
 }
- This is the block of code that was causing the issue and now my dropdown is also fixed
 
 body,html{
   background-color: #222;
   min-height: 100vh;
   width: 100%;
-} */
+}
 
 
 .full-nav{
-  height: 90vh; /* vertical height minus height of navbar*/
+  height: 89vh; /* vertical height minus height of navbar*/
 }
 
 .b-r{
@@ -75,7 +72,7 @@ body,html{
 
 .btn-success{ background-color: #00bc8c; }
 
-.mainpage{ flex-direction: row-reverse; height: 90vh; align-items: center; padding-top: 1rem;}
+.mainpage{ flex-direction: row-reverse; height: 89vh; align-items: center; padding-top: 1rem;}
 
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #333; }
