@@ -87,6 +87,6 @@ body,html{
   .b-r{display: none;}
   .online-users{flex-direction: row-reverse; }
   .message{ width: 100%; }
-  .mainpage{ flex-direction: column;}
+  .mainpage{ flex-direction: column; justify-content: space-around;}
   .col{width: 100%;}
 }
