@@ -6,9 +6,13 @@
   <div class="container">
 
     <!-- Roomname -->
-    <div class=" ">
+    <div class="row d-flex justify-content-between">
       <h1>Roomname</h1>
+
+      <button type="button" name="button" class="btn btn-danger mt-2">Leave Chatroom</button>
+      
     </div>
+    <br>
 
     <!-- headings -->
     <div class="row headings">
@@ -27,7 +31,6 @@
       <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 b-r" >
         <div class="online-users">
 
-          <%- include ('../partials/useronline') %>
 
         </div>
       </div>
@@ -38,7 +41,6 @@
         <!-- messages -->
         <div class="d-flex flex-column messages">
           
-          <%- include ('../partials/message') %>
 
         </div>
 
