@@ -11,6 +11,7 @@ import path from 'path';
 import mongoose from 'mongoose';
 import passport from "passport";
 import passportConfig from './config/passport.js'
+import helmet from 'helmet';
 
 dotenv.config();
 
@@ -19,12 +20,15 @@ passportConfig(passport);
 
 const app = Express();
 const __dirname = path.resolve();
-// const csrfProtection = csrf();
 const PORT = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV == 'dev') {
-  // app.use(logger('tiny'));
+// Use the logger in dev enviroment
+if (process.env.NODE_ENV == 'development') {
+  app.use(logger('tiny'));
 }
+
+// Use Helmet Protection
+app.use(helmet());
 
 // Set Static Folders
 app.use(Express.static(path.join(__dirname, 'public')));
