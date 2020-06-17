@@ -4,8 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let emailField = document.getElementById('emailField');
   let passwordField = document.getElementById('passwordField');
   let signupBtn = document.getElementById('signupBtn');
+  let loadingSpinner = document.getElementById('loadingSpinner');
+
   
   signupBtn.addEventListener('click', () => {
+    loadingSpinner.classList.remove('d-none');
     fetch('/auth/signup', {
       method: 'POST',
       headers: {

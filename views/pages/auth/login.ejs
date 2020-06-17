@@ -1,9 +1,9 @@
-<%- include('../../includes/head') %> 
+<%- include('../../includes/head') %>
 </head>
 
 <body>
-  <%- include('../../partials/navbar') %> 
-  <div class='container d-flex justify-content-center align-items-center full-nav' >
+  <%- include('../../partials/navbar') %>
+  <div class='container d-flex justify-content-center align-items-center full-nav'>
     <div class='card'>
       <div class='card-header'>
         Login
@@ -14,7 +14,8 @@
           <div class='form-group row'>
             <label for='emailField' class='col-sm-4 col-form-label'>Email</label>
             <div class='col-sm-8'>
-              <input type='email' class='form-control bg-secondary text-white' id='emailField' value='faizan-666@outlook.com'>
+              <input type='email' class='form-control bg-secondary text-white' id='emailField'
+                value='faizan-666@outlook.com'>
             </div>
           </div>
           <div class='form-group row'>
@@ -22,21 +23,26 @@
             <div class='col-sm-8'>
               <input type='password' class='form-control bg-secondary text-white' id='passwordField' value='faizan123'>
             </div>
-          </div>          
+          </div>
         </form>
         <div class='d-flex justify-content-center w-100'>
-          <button type='submit' class='btn btn-success w-100' id="loginBtn"> Login </button>
+          <button type='submit' class='btn btn-success w-100' id="loginBtn">
+            Login
+            <%- include('../../partials/loadingSpinner') %>
+          </button>
         </div>
         <div class="text-center mt-2">
           <p>Don't have an account? <a href="/signup">Sign up</a></p>
-        </div> 
+        </div>
         <hr class="bg-light">
         <div class='d-flex justify-content-center w-100'>
-          <button type='submit' class='btn bg-white w-100 text-muted'> <i class="fab fa-google"></i> Sign in with Google </button>
+          <button type='submit' class='btn bg-white w-100 text-muted'> <i class="fab fa-google"></i> Sign in with Google
+          </button>
         </div>
         <!-- <hr class="bg-light"> -->
         <div class='d-flex justify-content-center w-100 mt-3'>
-          <button type='submit' class='btn btn-primary w-100'> <i class="fab fa-facebook-f"></i> Sign in with Facebook </button>
+          <button type='submit' class='btn btn-primary w-100'> <i class="fab fa-facebook-f"></i> Sign in with Facebook
+          </button>
         </div>
       </div>
     </div>
