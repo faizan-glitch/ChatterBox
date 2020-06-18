@@ -22,5 +22,13 @@ document.addEventListener('DOMContentLoaded', () => {
         password: passwordField.value
       })
     })
+      .then(res => {
+        loadingSpinner.classList.add('d-none');
+        console.log(res);
+      })
+      .catch(err => {
+        loadingSpinner.classList.add('d-none');
+        console.log(err);
+      })
   });
 });
