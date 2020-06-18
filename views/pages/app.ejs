@@ -1,41 +1,14 @@
 <%- include('../includes/head') %> 
-</head>
-
 <body>
   <%- include('../partials/navbar') %> 
 
-  <div class="container">
-    <div class="">
-      <div class="col text-center">
-        <br>
-
-        <div class="d-flex justify-content-center">
-          <div class="col-md-8 col-lg-6 col-sm-11">
-            <!-- img here -->
-            <img src="assets/images/ideas.svg" />
-        </div>
-        </div>
-        <br>
-
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          Create new Chatroom
-        </button>
-        <br><br>
-
-        <%= user %> 
-
-        <input class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for chatrooms.." aria-label="Search">
-        <ul class="list-unstyled" id="chatrooms">
-
-          <%- include('../partials/chatrooms') %> 
-
-        </ul>
-      </div>
+  <div class="container-fluid d-flex justify-content-center px-0 mx-0">
+    <div class="row w-100 text-center">
+      <div class="col-sm-2 bg-success">List of Rooms / Channels</div>
+      <div class="col-sm-8 bg-info">Selected Room / Channel</div>
+      <div class="col-sm-2 bg-warning d-none d-md-block">Info of Room / Channel</div>
     </div>
   </div>
-
-  <!-- Modal -->
-  <!-- This app modal is breaking the code So i have temporarily removed it -->
 
 </body>
 
