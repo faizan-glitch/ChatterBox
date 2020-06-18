@@ -1,7 +1,6 @@
 import passportLocal from 'passport-local';
 import bcrypt from 'bcrypt';
 import User from '../models/User.js';
-import flash from 'connect-flash';
 
 const LocalStrategy = passportLocal.Strategy;
 
@@ -11,10 +10,10 @@ export default (passport) => {
       User.findOne({ email: email })
         .then(user => {
           if (!user) {
-            return done(null, false, { message: "This email doesn't exist."});
+            return done(null, false, { message: "This email doesn't exist." });
           }
           if (!user.verified) {
-            return done(null, false, { message: "Account is not verified."});
+            return done(null, false, { message: "Account is not verified." });
           }
           bcrypt.compare(password, user.password)
             .then(isMatch => {
@@ -30,7 +29,7 @@ export default (passport) => {
                 });
               }
               else {
-                return done(null, false, { message: 'Password is incorrect.'});
+                return done(null, false, { message: 'Password is incorrect.' });
               }
             });
         })
