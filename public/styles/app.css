@@ -15,6 +15,16 @@ body,html{
   height: 89vh; /* vertical height minus height of navbar*/
 }
 
+.nav-link {
+  outline: none !important;
+}
+
+#app-container {
+  height: 89vh !important;
+  overflow-y: hidden !important;
+  border-top: 1px pink;
+}
+
 .b-r{
   border-right: thin black solid;
   max-height: 75vh;
