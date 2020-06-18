@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let passwordField = document.getElementById('passwordField');
   let loginBtn = document.getElementById('loginBtn');
   let loadingSpinner = document.getElementById('loadingSpinner');
+  let alert = document.getElementById('alert');
+  let alertMessage = document.getElementById('alert-message');
+
 
   loginBtn.addEventListener('click', () => {
     loadingSpinner.classList.remove('d-none');
@@ -20,10 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
       .then(res => {
+        console.log(res);
         loadingSpinner.classList.add('d-none');
         if (res.status == 200) {
           window.location.assign(res.url);
+          return;
         }
+        window.location.assign('/login');
       })
       .catch(err => {
         loadingSpinner.classList.add('d-none');

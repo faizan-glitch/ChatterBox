@@ -12,6 +12,7 @@ import mongoose from 'mongoose';
 import passport from "passport";
 import passportConfig from './config/passport.js'
 import helmet from 'helmet';
+import flash from 'connect-flash';
 
 dotenv.config();
 
@@ -43,6 +44,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(flash());
 
 // Use Passport
 app.use(passport.initialize());

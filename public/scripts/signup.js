@@ -5,8 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let passwordField = document.getElementById('passwordField');
   let signupBtn = document.getElementById('signupBtn');
   let loadingSpinner = document.getElementById('loadingSpinner');
+  let alert = document.getElementById('alert');
+  let alertMessage = document.getElementById('alert-message');
 
-  
   signupBtn.addEventListener('click', () => {
     loadingSpinner.classList.remove('d-none');
     fetch('/auth/signup', {
@@ -24,10 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
     })
       .then(res => {
         loadingSpinner.classList.add('d-none');
+        alertMessage.innerText = res.statusText;
+        alert.classList.remove('d-none');
         console.log(res);
       })
       .catch(err => {
         loadingSpinner.classList.add('d-none');
+        alertMessage.innerText = res.statusText;
+        alert.classList.remove('d-none');
         console.log(err);
       })
   });

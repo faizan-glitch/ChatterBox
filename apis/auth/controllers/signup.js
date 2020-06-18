@@ -31,7 +31,7 @@ const signupController = (req, res) => {
           Promise.all([user.save(), transporter.sendMail(Email)])
             .then(info => {
               console.log(info);
-              res.status(201).send('Account Created Successfully');
+              res.status(201).send();
               return;
             })
             .catch(err => {

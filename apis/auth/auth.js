@@ -18,7 +18,10 @@ router.use(csrfProtection);
 router.post('/signup', signupController);
 
 router.post('/login',
-  passport.authenticate('local'),
+  passport.authenticate('local', {
+    failureFlash: true,
+    passReqToCallback: true
+  }),
   (req, res) => {
     res.redirect('/app');
   });

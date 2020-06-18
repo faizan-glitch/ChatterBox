@@ -13,7 +13,8 @@ router.use(csrfProtection);
 router.get('/login', (req, res) => {
   res.render(path.join(__dirname, 'views', 'pages', 'auth', 'login'), {
     activeTab: 'Login',
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    message: req.flash().error
   });
 });
 
