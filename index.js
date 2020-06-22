@@ -62,6 +62,18 @@ app.use(AuthRoutes);
 // Use Auth API
 app.use('/auth', AuthAPI);
 
+// 404 Page
+app.get('/404', (req, res) => {
+  return res.status(404).render(path.join(__dirname, 'views', 'pages', '404'), {
+    activeTab: '404',
+    csrfToken: req.csrfToken()
+  });
+});
+
+app.get('**', (req, res) => {
+  res.redirect('/404');
+});
+
 // Connect with MongoDB
 mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(res => {

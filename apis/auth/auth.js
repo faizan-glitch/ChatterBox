@@ -30,4 +30,8 @@ router.get('/verify', verifyController);
 
 router.get('/logout', logoutController);
 
-router.post('/reset', resetController);
+router.post('/reset', resetController.sendEmail);
+
+router.post('/reset/password', resetController.updatePassword);
+
+router.get('/reset/:_token', resetController.verifyToken);

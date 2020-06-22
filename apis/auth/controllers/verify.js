@@ -1,4 +1,5 @@
 import User from '../../../models/User.js';
+import { v4 as uuidv4 } from 'uuid';
 
 const verifyController = (req, res) => {
   User.updateOne(
@@ -6,7 +7,8 @@ const verifyController = (req, res) => {
     {
       $set: {
         "verified": "true",
-        "verifiedAt": Date.now()
+        "verifiedAt": Date.now(),
+        "accessToken": uuidv4()
       }
     },
   )

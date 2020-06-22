@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(err => {
         loadingSpinner.classList.add('d-none');
-        alertMessage.innerText = res.statusText;
+        alertMessage.innerText = err.statusText;
         alert.classList.remove('d-none');
         console.log(err);
       })
