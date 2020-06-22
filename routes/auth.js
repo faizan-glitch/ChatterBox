@@ -29,6 +29,7 @@ router.get('/signup', (req, res) => {
 router.get('/reset', (req, res) => {
   res.render(path.join(__dirname, 'views', 'pages', 'auth', 'reset'), {
     activeTab: 'Reset',
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    message: req.flash()
   });
 });

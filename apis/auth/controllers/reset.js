@@ -1,9 +1,9 @@
 import User from '../../../models/User.js';
 import { transporter, Email } from '../../../services/email/nodemailer.js';
 import path from 'path';
-import csrf from 'csurf';
 import { v4 as uuidv4 } from 'uuid';
 import bcrypt from 'bcrypt';
+import flash from 'connect-flash';
 
 const __dirname = path.resolve();
 
@@ -26,6 +26,7 @@ const sendEmail = (req, res) => {
           }
           else {
             console.log(info);
+            req.flash('message', 'Email has been sent.');
             return res.status(200).send();
           }
         });
@@ -60,8 +61,6 @@ const verifyToken = (req, res) => {
 };
 
 const updatePassword = (req, res) => {
-  console.log(req.body.newPassword);
-  console.log(req.body.email);
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
       User.updateOne(

@@ -15,5 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         email: emailField.value,
       })
     })
+      .then(response => {
+        // window.location.assign('/reset');
+      })
   });
 });
