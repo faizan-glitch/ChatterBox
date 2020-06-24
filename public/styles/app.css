@@ -15,7 +15,7 @@ body,html{
   height: 89vh; /* vertical height minus height of navbar*/
 }
 
-.nav-link {
+.nav-link, a {
   outline: none !important;
 }
 
@@ -23,6 +23,10 @@ body,html{
   height: 89vh !important;
   overflow-y: hidden !important;
   border-top: 1px pink;
+}
+
+#sidepane-header {
+  overflow-y: auto;
 }
 
 .b-r{
