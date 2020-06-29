@@ -2,7 +2,7 @@ import Express from 'express';
 import passport from 'passport';
 import csrf from 'csurf';
 
-import { 
+import {
   signupController,
   verifyController,
   logoutController,
@@ -32,6 +32,12 @@ router.get('/logout', logoutController);
 
 router.post('/reset', resetController.sendEmail);
 
-router.post('/reset/password', resetController.updatePassword);
-
 router.get('/reset/:_token', resetController.verifyToken);
+
+router.get('/google', passport.authenticate('google', {
+  scope: ['profile', 'email']
+}));
+
+router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
+  res.redirect('/app');
+});

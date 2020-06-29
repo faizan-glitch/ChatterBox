@@ -13,7 +13,7 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+    default: null
   },
   createdAt: {
     type: Date,
@@ -38,6 +38,10 @@ const userSchema = new Schema({
   accessToken: {
     type: String,
     required: true
+  },
+  googleId: {
+    type: String,
+    default: null
   }
 });
 

@@ -10,6 +10,11 @@ const keys = {
       email: '',
       password: ''
     }
+  },
+  GOOGLE: {
+    API_KEY: '',
+    CLIENT_ID: '',
+    CLIENT_SECRET: ''
   }
 };
 

@@ -1,10 +1,44 @@
 import passportLocal from 'passport-local';
+import passportGoogle from 'passport-google-oauth20';
 import bcrypt from 'bcrypt';
 import User from '../models/User.js';
+import keys from './keys.js';
 
 const LocalStrategy = passportLocal.Strategy;
+const GoogleStrategy = passportGoogle.Strategy;
 
 export default (passport) => {
+  passport.use(
+    new GoogleStrategy({
+      clientID: keys.GOOGLE.CLIENT_ID,
+      clientSecret: keys.GOOGLE.CLIENT_SECRET,
+      callbackURL: '/auth/google/redirect'
+    }, (accessToken, refreshToken, profile, done) => {
+      User.findOne({ email: profile.emails[0].value })
+        .then(currentUser => {
+          if (currentUser) {
+            return done(null, currentUser)
+          }
+          else {
+            new User({
+              displayName: profile.displayName,
+              googleId: profile.id,
+              email: profile.emails[0].value,
+              verified: true,
+              verifiedAt: Date.now(),
+              authProvider: profile.provider,
+              accessToken: accessToken,
+              signedIn: true
+            })
+              .save()
+              .then(newUser => {
+                return done(null, newUser);
+              });
+          }
+        })
+    })
+  );
+
   passport.use(
     new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
       User.findOne({ email: email })
