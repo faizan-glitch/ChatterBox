@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'applicaiton/json',
+          'Accept': 'application/json',
           'CSRF-Token': csrfToken
         },
         body: JSON.stringify({
@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   upgradePlanBtn.addEventListener('click', () => {
-    console.log("Upgrade Button Clicked");
     stripeHandler.open({
       amount: 500
     });

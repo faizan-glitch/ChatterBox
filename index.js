@@ -3,6 +3,7 @@ import { router as AppRoutes } from './routes/index.js';
 import { router as AuthRoutes } from './routes/auth.js';
 import { router as AuthAPI } from './apis/auth/auth.js';
 import { router as PaymentsAPI } from './apis/payments/stripe.js';
+import { router as RoomAPI } from './apis/room/room.js';
 import keys from './config/keys.js';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -37,6 +38,9 @@ app.use(Express.static(path.join(__dirname, 'public')));
 app.use(Express.static(path.join(__dirname, 'vendors')));
 app.use(Express.static(path.join(__dirname, 'node_modules')));
 
+// Parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // Parse application/json
 app.use(bodyParser.json());
 
@@ -65,6 +69,9 @@ app.use('/auth', AuthAPI);
 
 // Use Payments API
 app.use('/payments', PaymentsAPI);
+
+// Use Room API
+app.use('/room', RoomAPI);
 
 // 404 Page
 app.get('/404', (req, res) => {
