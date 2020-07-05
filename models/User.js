@@ -46,6 +46,10 @@ const userSchema = new Schema({
   plan: {
     type: String,
     default: 'free'
+  },
+  paymentId: {
+    type: String,
+    default: null
   }
 });
 

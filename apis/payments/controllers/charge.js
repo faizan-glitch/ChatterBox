@@ -13,11 +13,12 @@ const chargeController = (req, res) => {
   })
     .then((payment) => {
       console.log('Charge Successful');
-      console.log(payment);
+      console.log(payment.id);
       
       req.user.updateOne({
         $set: {
-          plan: 'premium'
+          plan: 'premium',
+          paymentId: payment.id
         }
       })
         .then(user => {
