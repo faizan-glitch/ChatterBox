@@ -107,8 +107,8 @@
       </div>
       <div class="icons text-light">
         <div class="btn-group" role="group">
-          <button type="button" class="btn btn-secondary"> <i class="fa fa-sign-out-alt"
-              aria-hidden="true"></i></button>
+          <a type="button" class="btn btn-secondary" href="/auth/logout"> <i class="fa fa-sign-out-alt"
+              aria-hidden="true"></i></a>
           <!-- <button type="button" class="btn btn-secondary"> <i class="fa fa-cog" aria-hidden="true"></i> </button> -->
 
           <div class="btn-group" role="group">
@@ -119,8 +119,8 @@
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
               <!-- Button trigger modal -->
               <% if (user.plan === 'free') { %>
-                <a class="dropdown-item" data-toggle="modal"  id="upgradePlanBtn"> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Upgrade your
-                  plan</a>
+                <button class="dropdown-item" data-toggle="modal"  id="upgradePlanBtn"> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Upgrade your
+                  plan</button>
               <% } %>
               <!-- <a class="dropdown-item" href="#">Dropdown link</a> -->
             </div>
