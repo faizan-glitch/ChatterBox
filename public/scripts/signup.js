@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify({
         displayName: displayNameField.value,
         email: emailField.value,
-        password: passwordField.value
+        password: passwordField.value,
       })
     })
       .then(res => {

@@ -15,6 +15,10 @@ const keys = {
     API_KEY: '',
     CLIENT_ID: '',
     CLIENT_SECRET: ''
+  },
+  STRIPE: {
+    PUBLIC_KEY: '',
+    SECRET_KEY: ''
   }
 };
 

@@ -42,6 +42,10 @@ const userSchema = new Schema({
   googleId: {
     type: String,
     default: null
+  },
+  plan: {
+    type: String,
+    default: 'free'
   }
 });
 

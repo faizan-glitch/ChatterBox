@@ -2,7 +2,7 @@
   <div id="sidepane-header">
     <div id="search" class="mx-3">
       <div class="input-group flex-nowrap">
-        <input type="text" class="form-control bg-dark text-white"aria-describedby="addon-wrapping">
+        <input type="text" class="form-control bg-dark text-white" aria-describedby="addon-wrapping">
         <div class="input-group-append">
           <span class="input-group-text" id="addon-wrapping"><i class="fa fa-search" aria-hidden="true"></i></span>
         </div>
@@ -102,12 +102,30 @@
     <div class="d-flex justify-content-between align-items-center mx-2">
       <div class="">
         <img src="assets/images/cat.jpg" alt="" class="rounded-circle my-2" style="width: 45px;">
-        <span class="text-muted"><%= user.displayName.split(' ')[0] %>  <span class="badge badge-pill badge-success">&nbsp;</span> </span>        
+        <span class="text-muted"><%= user.displayName.split(' ')[0] %>
+          <!-- <span class="badge badge-pill badge-success">&nbsp;</span> </span> -->
       </div>
       <div class="icons text-light">
-        <a href="/auth/logout"> <i class="fa fa-sign-out-alt mx-1 text-light " aria-hidden="true"></i></a>
-        <i class="fa fa-cog mx-1" aria-hidden="true"></i>
-        <i class="fa fa-ellipsis-v mx-1" aria-hidden="true"></i>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-secondary"> <i class="fa fa-sign-out-alt"
+              aria-hidden="true"></i></button>
+          <!-- <button type="button" class="btn btn-secondary"> <i class="fa fa-cog" aria-hidden="true"></i> </button> -->
+
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <!-- Button trigger modal -->
+              <% if (user.plan === 'free') { %>
+                <a class="dropdown-item" data-toggle="modal"  id="upgradePlanBtn"> <i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Upgrade your
+                  plan</a>
+              <% } %>
+              <!-- <a class="dropdown-item" href="#">Dropdown link</a> -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

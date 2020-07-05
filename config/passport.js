@@ -13,30 +13,31 @@ export default (passport) => {
       clientID: keys.GOOGLE.CLIENT_ID,
       clientSecret: keys.GOOGLE.CLIENT_SECRET,
       callbackURL: '/auth/google/redirect'
-    }, (accessToken, refreshToken, profile, done) => {
-      User.findOne({ email: profile.emails[0].value })
-        .then(currentUser => {
-          if (currentUser) {
-            return done(null, currentUser)
-          }
-          else {
-            new User({
-              displayName: profile.displayName,
-              googleId: profile.id,
-              email: profile.emails[0].value,
-              verified: true,
-              verifiedAt: Date.now(),
-              authProvider: profile.provider,
-              accessToken: accessToken,
-              signedIn: true
-            })
-              .save()
-              .then(newUser => {
-                return done(null, newUser);
-              });
-          }
-        })
-    })
+    },
+      (accessToken, refreshToken, profile, done) => {
+        User.findOne({ email: profile.emails[0].value })
+          .then(currentUser => {
+            if (currentUser) {
+              return done(null, currentUser)
+            }
+            else {
+              new User({
+                displayName: profile.displayName,
+                googleId: profile.id,
+                email: profile.emails[0].value,
+                verified: true,
+                verifiedAt: Date.now(),
+                authProvider: profile.provider,
+                accessToken: accessToken,
+                signedIn: true
+              })
+                .save()
+                .then(newUser => {
+                  return done(null, newUser);
+                });
+            }
+          })
+      })
   );
 
   passport.use(

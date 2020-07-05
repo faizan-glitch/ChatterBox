@@ -2,6 +2,7 @@ import Express from 'express';
 import { router as AppRoutes } from './routes/index.js';
 import { router as AuthRoutes } from './routes/auth.js';
 import { router as AuthAPI } from './apis/auth/auth.js';
+import { router as PaymentsAPI } from './apis/payments/stripe.js';
 import keys from './config/keys.js';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -9,7 +10,7 @@ import logger from 'morgan';
 import dotenv from 'dotenv';
 import path from 'path';
 import mongoose from 'mongoose';
-import passport from "passport";
+import passport from 'passport';
 import passportConfig from './config/passport.js'
 import helmet from 'helmet';
 import flash from 'connect-flash';
@@ -61,6 +62,9 @@ app.use(AuthRoutes);
 
 // Use Auth API
 app.use('/auth', AuthAPI);
+
+// Use Payments API
+app.use('/payments', PaymentsAPI);
 
 // 404 Page
 app.get('/404', (req, res) => {

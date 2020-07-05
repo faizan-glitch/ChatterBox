@@ -9,6 +9,7 @@
       </div>
       <div class="col-sm-8 bg-dark">
         <%- include('../includes/mainpane.ejs') %> 
+         
       </div>
       <div class="col-sm-2 bg-grey d-none d-md-block">Info of Room / Channel</div>
     </div>
@@ -18,3 +19,7 @@
 
 <%- include('../includes/end') %>
 <script src="scripts/app.js"></script>
+<script src="scripts/stripe.js"></script>
+<script> 
+  var stripePublicKey = '<%= stripePublicKey %>';
+</script>

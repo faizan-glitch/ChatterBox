@@ -2,6 +2,7 @@ import Express from 'express';
 import csrf from 'csurf';
 import path from 'path';
 import authGuard from '../services/auth/authGuard.js';
+import keys from '../config/keys.js';
 
 export const router = Express.Router();
 
@@ -36,7 +37,8 @@ router.get('/app', authGuard, (req, res) => {
   res.render(path.join(__dirname, 'views', 'pages', 'app'), {
     activeTab: 'App',
     csrfToken: req.csrfToken(),
-    user: req.user
+    user: req.user,
+    stripePublicKey: keys.STRIPE.PUBLIC_KEY
   });
 });
 
@@ -46,10 +48,9 @@ router.post('/test', (req, res) => {
 
 
 // For testing
-router.get('/chatroom', (req, res) => {
-  res.render(path.join(__dirname, 'views', 'pages', 'chatroom'), {
-    activeTab: '',
-    csrfToken: req.csrfToken()
-  });
-});
-
+// router.get('/upgrade', (req, res) => {
+//   res.render(path.join(__dirname, 'views', 'pages', 'upgrade'), {
+//     activeTab: 'Upgrade',
+//     csrfToken: req.csrfToken()
+//   });
+// });
