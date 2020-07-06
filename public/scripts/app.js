@@ -1,7 +1,7 @@
 // let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
 // const deleteUsersRooms = async () => {
-//     const rooms = await fetch('/room/5f03691ad14df9239338fafc', {
+//     const rooms = await fetch('/room/5f036b719d29b426e4cee87b', {
 //       method: "DELETE",
 //       headers: {
 //         "Content-Type": 'application/json',

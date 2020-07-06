@@ -1,16 +1,14 @@
 import Room from '../../../models/Room.js';
 
-const deleteRoomByID = async (req, res) => { 
-  const room = await Room.findById(req.params.id); 
-  if (room.ownerID === req.user.id) {
-    room.deleteOne()
-      .then(response => {
-        return res.status(200).send(response);
-      })
-      .catch(err => {
-        return res.status(500).send(err);
-      });
-  }
+const deleteRoomByID = (req, res) => { 
+  Room.findOneAndDelete(
+    {
+      _id: req.params.id,
+      ownerID: req.user._id
+    }
+  )
+    .then(_ => { return res.status(200).send(); })
+    .catch(err => { return res.status(500).send(); });
   return res.status(403).send();
 };
 
