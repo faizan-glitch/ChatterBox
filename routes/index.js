@@ -4,6 +4,8 @@ import path from 'path';
 import authGuard from '../services/auth/authGuard.js';
 import keys from '../config/keys.js';
 
+import Room from '../models/Room.js';
+
 export const router = Express.Router();
 
 const __dirname = path.resolve();
@@ -33,12 +35,15 @@ router.get('/about', (req, res) => {
   });
 });
 
-router.get('/app', authGuard, (req, res) => {
+router.get('/app', authGuard, async (req, res) => {
+  // console.log(JSON.stringify(req.user));
+  const rooms = await Room.find();
   res.render(path.join(__dirname, 'views', 'pages', 'app'), {
     activeTab: 'App',
     csrfToken: req.csrfToken(),
     user: req.user,
-    stripePublicKey: keys.STRIPE.PUBLIC_KEY
+    stripePublicKey: keys.STRIPE.PUBLIC_KEY,
+    rooms: rooms,
   });
 });
 

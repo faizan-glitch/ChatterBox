@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
   let upgradePlanBtn = document.getElementById('upgradePlanBtn');
-
+  console.log(stripePublicKey);
+  
   const stripeHandler = StripeCheckout.configure({
     key: stripePublicKey,
     locale: 'en',

@@ -33,32 +33,21 @@
         aria-controls="collapseExample">
         Rooms
       </a>
-      <button class="btn btn-white" data-toggle="modal" data-target="#createRoom"> <i class="fa fa-plus" aria-hidden="true"></i></button>
+      <button class="btn btn-white" data-toggle="modal" data-target="#createRoom"> <i class="fa fa-plus"
+          aria-hidden="true"></i></button>
     </div>
 
     <div class="collapse" id="roomsList">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <% rooms.forEach(room => { %>
         <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between">
-            <span>Room 1</span>
+            <span> <%= room.name %> </span>
             <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
           </div>
         </a>
-        <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">
-          <div class="row justify-content-between">
-            <span>Room 2</span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
-          </div>
-        </a>
-        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">
-          <div class="row justify-content-between">
-            <span>Room 3</span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
-          </div>
-        </a>
+        <% }) %>
       </div>
     </div>
 
@@ -119,8 +108,8 @@
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
               <!-- Button trigger modal -->
               <% if (user.plan === 'free') { %>
-                <button class="dropdown-item" id="upgradePlanBtn"> Upgrade your
-                  plan <i class="fa fa-level-up-alt" aria-hidden="true"></i> </button>
+              <button class="dropdown-item" id="upgradePlanBtn"> Upgrade your
+                plan <i class="fa fa-level-up-alt" aria-hidden="true"></i> </button>
               <% } %>
               <!-- <a class="dropdown-item" href="#">Dropdown link</a> -->
             </div>
