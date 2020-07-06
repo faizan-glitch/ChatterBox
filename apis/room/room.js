@@ -3,7 +3,8 @@ import csrf from 'csurf';
 
 import {
   createController,
-  readController
+  readController,
+  deleteController
 } from './controllers/roomControllers.js';
 
 export const router = Express.Router();
@@ -20,3 +21,8 @@ router.get('/user/:id', readController.getRoomsByUserID);
 
 router.get('/:id', readController.getRoomByID);
 
+// Rooms can only be deleted if the req.user.id === ownerID of that room. 
+// This route will delete all rooms created by the User
+router.delete('/user/:id', deleteController.deleteRoomsByUserID);
+
+router.delete('/:id', deleteController.deleteRoomByID);

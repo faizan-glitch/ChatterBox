@@ -40,9 +40,9 @@
     <div class="collapse" id="roomsList">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <% rooms.forEach(room => { %>
-        <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
+        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
           aria-controls="v-pills-home" aria-selected="true">
-          <div class="row justify-content-between">
+          <div class="row justify-content-between px-1">
             <span> <%= room.name %> </span>
             <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
           </div>
@@ -69,20 +69,7 @@
             <span class="badge badge-pilsl badge-danger d-flex align-items-center">10</span>
           </div>
         </a>
-        <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">
-          <div class="row justify-content-between">
-            <span>Channel 2</span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">2</span>
-          </div>
-        </a>
-        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">
-          <div class="row justify-content-between">
-            <span>Channel 3</span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
-          </div>
-        </a>
+ 
       </div>
     </div>
   </div>
