@@ -30,7 +30,7 @@ const signupController = (req, res) => {
               `;
           Email.subject = 'Verify your ChatterBox Account';
           Email.html = verificationMessage;
-          Promise.all([user.save(), transporter.sendMail(Email)])
+          Promise.race([user.save(), transporter.sendMail(Email)])
             .then(info => {
               console.log(info);
               res.status(201).send();
