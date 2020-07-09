@@ -35,9 +35,10 @@
       <div class="d-flex flex-column messages mb-3">
         <% room.messages.forEach(message => { %>
 
-        <div class=""> userName:
-          <p class="message"> <%= message %> </p>
+        <div class="msg"> Username:
           <i class="time"> 00:00am </i>
+          <p class="message"> <%= message %> </p>
+          
         </div>
 
         <% }) %>
