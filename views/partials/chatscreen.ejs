@@ -1,42 +1,50 @@
 <div class="h-100 w-100 d-flex-column mt-3">
-  <div class="row justify-content-center">
+  <div class="row justify-content-between d-flex">
+    <div class="col-1 mt-1">
+      <h4><%= room.name %></h4>
+    </div>
+
     <ul class="nav ">
       <li class="nav-item">
-        <a class="nav-link active" href=""  data-toggle="tooltip" title="Invite a friend">  <i class="fa fa-user-friends" aria-hidden="true"></i></a>
+        <a class="nav-link active" href="" data-toggle="tooltip" title="Invite a friend"> <i class="fa fa-user-friends"
+            aria-hidden="true"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="tooltip" title="Leave this chat"> <i class="fa fa-sign-out-alt" aria-hidden="true"></i></a>
+        <a class="nav-link" href="" data-toggle="tooltip" title="Leave this chat"> <i class="fa fa-sign-out-alt"
+            aria-hidden="true"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="tooltip" title="Mute this chat"><i class="fa fa-volume-mute" aria-hidden="true"></i></a>
+        <a class="nav-link" href="" data-toggle="tooltip" title="Mute this chat"><i class="fa fa-volume-mute"
+            aria-hidden="true"></i></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="tooltip" title="Pin this chat"> <i class="fa fa-thumbtack" aria-hidden="true"></i></a>
+        <a class="nav-link" href="" data-toggle="tooltip" title="Pin this chat"> <i class="fa fa-thumbtack"
+            aria-hidden="true"></i></a>
       </li>
     </ul>
+
+
   </div>
   <hr class="bg-light">
   <div class="">
-    <h1><%=room.name%></h1>
-
     <div class="text-left">
 
       <h3>Messages:</h3>
 
-    <!-- messages -->
-    <div class="d-flex flex-column messages">
-      <% room.messages.forEach(message => { %>
+      <!-- messages -->
+      <div class="d-flex flex-column messages">
+        <% room.messages.forEach(message => { %>
 
         <div class=""> userName:
-            <p class="message"> <%= message %> </p>
-            <i class="time"> 00:00am </i>
+          <p class="message"> <%= message %> </p>
+          <i class="time"> 00:00am </i>
         </div>
 
-      <% }) %>
+        <% }) %>
+      </div>
+
     </div>
-    
-    </div>
-    
+
 
     <!-- type Message in chat area -->
     <%- include('../partials/sendmessage') %>
