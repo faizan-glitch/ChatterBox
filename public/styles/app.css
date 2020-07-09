@@ -43,7 +43,7 @@ body,html{
 
 .messages{
   overflow-y:scroll;
-  max-height: 60vh;
+  max-height: 50vh;
 }
 .messages div{
   margin: 0 0 0.4rem 0;
@@ -67,8 +67,8 @@ body,html{
 .message{
   width: 48%;
   min-height: 1.9rem;
-  /* background-color: #00bc8c; */
-  background-color: #333;
+  background-color: #00bc8c;
+  background-color:rgb(55, 91, 129);
   align-content: left;
   text-align: left;
   border-radius: 1rem;

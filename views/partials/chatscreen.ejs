@@ -17,17 +17,29 @@
   </div>
   <hr class="bg-light">
   <div class="">
-    <h1>Chat Messages UI will go here</h1>
-    <%= room._id %>
-    Random text
-    <%= room.name %>
-    Messages of this room
+    <h1><%=room.name%></h1>
 
-    <!-- By Default everyroom has the same default messages in it's Array. They are only placeholder for now
-           Later they will be Replaced by Actual Message DB Objects
-      -->
-    <div class="">
-      <%= room.messages %>
+    <div class="text-left">
+
+      <h3>Messages:</h3>
+
+    <!-- messages -->
+    <div class="d-flex flex-column messages">
+      <% room.messages.forEach(message => { %>
+
+        <div class=""> userName:
+            <p class="message"> <%= message %> </p>
+            <i class="time"> 00:00am </i>
+        </div>
+
+      <% }) %>
     </div>
+    
+    </div>
+    
+
+    <!-- type Message in chat area -->
+    <%- include('../partials/sendmessage') %>
+
   </div>
 </div>
