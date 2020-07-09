@@ -1,10 +1,19 @@
 <div class="tab-content" id="v-pills-tabContent">
   <% rooms.forEach(room => { %>
-    <div class="tab-pane fade show" id="<%= room.name %>" role="tabpanel" aria-labelledby="v-pills-home-tab">
-      <%= room._id %>
-      Random text
-      <%= room.name %>
+  <div class="tab-pane fade show" id="<%= room.name %>" role="tabpanel" aria-labelledby="v-pills-home-tab">
+    <%= room._id %>
+    Random text
+    <%= room.name %>
+    Messages of this room
+
+    <!-- By Default everyroom has the same default messages in it's Array. They are only placeholder for now
+           Later they will be Replaced by Actual Message DB Objects
+      -->
+    <div class="">
+      <%= room.messages %>
     </div>
-<% }) %>
-    
+
+  </div>
+  <% }) %>
+
 </div>

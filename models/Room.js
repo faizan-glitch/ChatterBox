@@ -27,8 +27,11 @@ const RoomSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now()
+  },
+  messages: {
+    type: Array,
+    default: ["Hello", "World", "Musicaspidnasind aisnd ", "asoidnaio sndasiodn", "asdmapsodm apsodm pasmd po" ]
   }
-
 });
 
 const Room = mongoose.model('Room', RoomSchema);
