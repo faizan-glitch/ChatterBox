@@ -18,8 +18,12 @@ searchButton.addEventListener('click', () => {
   })
   .then(async res => {
     res = await res.json();
-    console.log(res);
-    $('#searchList').html(`<li class="list-group-item text-left"> ${res.name} </li>`);
+    if(res) {
+      $('#searchList').html(`<li class="list-group-item text-left"> ${res.name} </li>`);
+    }
+    else {
+      $('#searchList').html(`<li class="list-group-item text-left"> No Room Found. <i class="fa fa-frown" aria-hidden="true"></i> </li>`);
+    }
     $('#collapseSearch').collapse();
   })
   .catch(err => {
