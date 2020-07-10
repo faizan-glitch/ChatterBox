@@ -35,7 +35,7 @@
       <button class="btn rounded text-success bg-dark">
         <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
       </button>
-      <p class="text-muted">More</p>
+      <p class="text-muted ">More</p>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
 
 
             <div id="collapseAbout" class="collapse hide" aria-labelledby="headingOne" >
-              <div class="card-body text-left">
+              <div class="card-body text-left text-muted">
                 The purpose of this room is to share our love of cats.
               </div>
             </div>
@@ -75,7 +75,7 @@
 
             <div id="collapseMembers" class="collapse hide" aria-labelledby="headingOne"
               data-parent="#accordionExample">
-              <div class="card-body text-left">
+              <div class="card-body text-left text-muted">
                 <% room.members.forEach(member => { %>
                  <%= member._id %> 
                 <% }) %>
