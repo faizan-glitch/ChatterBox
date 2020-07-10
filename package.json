@@ -8,7 +8,7 @@
     "dev": "nodemon index"
   },
   "type": "module",
-  "keywords": [],
+  "keywords": ["Chat App", "SocketIO", "ChatterBox"],
   "author": "",
   "license": "ISC",
   "dependencies": {
