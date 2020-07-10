@@ -9,7 +9,7 @@
   },
   "type": "module",
   "keywords": ["Chat App", "SocketIO", "ChatterBox"],
-  "author": "",
+  "author": "Faizan Zahid",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^4.0.1",
