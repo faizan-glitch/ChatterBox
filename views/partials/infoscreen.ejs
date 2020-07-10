@@ -11,7 +11,7 @@
   </div>
   <hr class="bg-light">
 
-  <div class="row mx-4">
+  <div class="row mx-2 ">
     <div class="col">
       <button class="btn rounded text-success bg-dark">
         <i class="fa fa-user-plus" aria-hidden="true"></i>
@@ -26,9 +26,9 @@
     </div>
     <div class="col">
       <button class="btn rounded text-success bg-dark">
-        <i class="fa fa-phone" aria-hidden="true"></i>
+        <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
       </button>
-      <p class="text-muted">Call</p>
+      <p class="text-muted">Leave</p>
 
     </div>
     <div class="col">
@@ -39,20 +39,21 @@
     </div>
   </div>
 
-  <hr class="bg-light">
+  <!-- <hr class="bg-light"> -->
 
   <div class="w-100">
-    <ul class="list-group ">
-      <li class="list-group-item list-group-item-  p-0 m-0">
-        <div class="accordion" id="accordionExample">
-          <div class="card" style="background-color: #212121;">
+    <ul class="list-group">
+      <li class="list-group-item border-gray p-0 m-0" style="border-radius: 0 !important;">
+        <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
+          <div class="card" style="background-color: #212121; border-radius: 0 !important;">
             <button class="btn btn-block text-left w-100 h-100" type="button" data-toggle="collapse"
-              data-target="#collapseAbout" aria-expanded="true" aria-controls="collapseOne">
+              data-target="#collapseAbout" aria-expanded="true" aria-controls="collapseOne"
+              style="border-radius: 0 !important;">
               About
             </button>
 
 
-            <div id="collapseAbout" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseAbout" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample" >
               <div class="card-body text-left">
                 Lorem ipsum dolor sit amet.
               </div>
@@ -60,11 +61,11 @@
           </div>
 
       </li>
-      <li class="list-group-item p-0 m-0" >
-        <div class="accordion" id="accordionExample">
+      <li class="list-group-item  border-gray p-0 m-0" style="border-radius: 0 !important;">
+        <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
           <div class="card" style="background-color: #212121;">
             <button class="btn btn-block text-left w-100 h-100  d-flex justify-content-between align-items-center" type="button" data-toggle="collapse"
-              data-target="#collapseMembers" aria-expanded="true" aria-controls="collapseOne">
+              data-target="#collapseMembers" aria-expanded="true" aria-controls="collapseOne" style="border-radius: 0 !important;">
               Members
               <span class="badge badge-primary badge-pill">
                 <%= room.members.length %> 
@@ -82,12 +83,12 @@
             </div>
           </div>
       </li>
-      <li class="list-group-item list-group-item-  p-0 m-0">
-        <div class="accordion" id="accordionExample">
+      <li class="list-group-item  border-gray  p-0 m-0" style="border-radius: 0 !important;">
+        <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
           <div class="card" style="background-color: #212121;">
 
             <button class="btn btn-block text-left w-100 h-100" type="button" data-toggle="collapse"
-              data-target="#collapsePinned" aria-expanded="true" aria-controls="collapseOne">
+              data-target="#collapsePinned" aria-expanded="true" aria-controls="collapseOne" style="border-radius: 0 !important;">
               Pinned
             </button>
 
@@ -100,12 +101,12 @@
           </div>
       </li>
 
-      <li class="list-group-item list-group-item p-0 m-0" style="background-color: #212121 !important;">
-        <div class="accordion" id="accordionExample">
+      <li class="list-group-item  border-gray p-0 m-0" style="background-color: #212121 !important; border-radius: 0 !important;">
+        <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
           <div class="card" style="background-color: #212121;">
 
             <button class="btn btn-block text-left w-100 h-100" type="button" data-toggle="collapse"
-              data-target="#collapseFiles" aria-expanded="true" aria-controls="collapseOne">
+              data-target="#collapseFiles" aria-expanded="true" aria-controls="collapseOne" style="border-radius: 0 !important;">
               Files
             </button>
 
