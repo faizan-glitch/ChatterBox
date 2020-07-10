@@ -1,20 +1,19 @@
 <div class="d-flex flex-column w-100 h-100 pt-4 justify-content-between" id="sidepane">
   <div id="sidepane-header">
 
-    <div id="search" class="mx-3">
+    <div id="search" class="mx-3" style="position: absolute !important;">
       <div class="input-group  ">
-        <input type="text" class="form-control bg-dark text-white" id="searchInput" onkeyup="myFunction()"
-          autocomplete="off">
+        <input type="text" class="form-control bg-dark text-white" id="searchInput" autocomplete="off">
         <div class="input-group-append">
-          <button class="input-group-text" data-toggle="collapse" href="#collapseSearch"
+          <button class="input-group-text" id="searchButton" data-toggle="collapse" href="#collapseSearch"
             style="outline: none !important;"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </div>
-      <div class="collapse" id="collapseSearch">
-        <div class="card card-body">
+      <div class="collapse w-100" id="collapseSearch">
+        <div class="card card-body p-0 " >
           <ul class="list-group list-group-flush">
            <% rooms.forEach(room => { %>
-            <li class="list-group-item"> <%= room.name %> </li>
+            <li class="list-group-item text-left"> <%= room.name %> </li>
            <% }) %>
           </ul>
         </div>
@@ -136,9 +135,4 @@
   </div>
 </div>
 
-<script>
-  function searching() {
-    console.log("hello");
-    // document.getElementById("publicChats").style.display = "block";
-  }
-</script>
+<script src="scripts/searchRoom.js"></script>
