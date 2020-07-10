@@ -2,32 +2,26 @@
   <div id="sidepane-header">
 
     <div id="search" class="mx-3">
-      <div class="input-group flex-nowrap ">
-        <input type="text" class="form-control bg-dark text-white" id="searchInput" onkeyup="myFunction()" autocomplete="off">
+      <div class="input-group  ">
+        <input type="text" class="form-control bg-dark text-white" id="searchInput" onkeyup="myFunction()"
+          autocomplete="off">
         <div class="input-group-append">
-          <button class="input-group-text" data-toggle="collapse" href="#collapseSearch" style="outline: none !important;"><i class="fa fa-search" aria-hidden="true"></i></button>
+          <button class="input-group-text" data-toggle="collapse" href="#collapseSearch"
+            style="outline: none !important;"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </div>
-      <div class="collapse mr-3" id="collapseSearch" style="position: absolute !important;">
+      <div class="collapse" id="collapseSearch">
         <div class="card card-body">
-          <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <ul id="chatrooms" class="list-unstyled">
-              <% rooms.forEach(room => { %>
-                <li> <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#<%= room.name %>' 
-                  aria-controls="v-pills-home" aria-selected="true">
-                  <div class="row justify-content-between px-1">
-                    <span> <%= room.name %> </span>
-                    <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
-                  </div>
-                </a> </li>
-                <% }) %>
-            </ul>
-          </div>
+          <ul class="list-group list-group-flush">
+           <% rooms.forEach(room => { %>
+            <li class="list-group-item"> <%= room.name %> </li>
+           <% }) %>
+          </ul>
         </div>
       </div>
     </div>
 
-<!--     
+    <!--     
     <input list="seachChats" name="browser" id="browser" class="bg-dark form-control text-white">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
@@ -75,7 +69,7 @@
     <div class="collapse" id="roomsList">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <% rooms.forEach(room => { %>
-        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#<%= room.name %>' 
+        <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#<%= room.name %>'
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between px-1">
             <span> <%= room.name %> </span>
@@ -104,7 +98,7 @@
             <span class="badge badge-pilsl badge-danger d-flex align-items-center">10</span>
           </div>
         </a>
- 
+
       </div>
     </div>
   </div>
@@ -143,7 +137,7 @@
 </div>
 
 <script>
-  function searching(){
+  function searching() {
     console.log("hello");
     // document.getElementById("publicChats").style.display = "block";
   }
