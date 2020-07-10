@@ -1,31 +1,35 @@
 <div class="d-flex flex-column w-100 h-100 pt-4 justify-content-between" id="sidepane">
   <div id="sidepane-header">
 
-    <!-- <div id="search" class="mx-3">
-      <div class="input-group flex-nowrap">
-        <input type="text" class="form-control" onkeyup="myFunction()" oninput="searching()" id="searchInput" aria-describedby="addon-wrapping" autocomplete="off">
+    <div id="search" class="mx-3">
+      <div class="input-group flex-nowrap ">
+        <input type="text" class="form-control bg-dark text-white" id="searchInput" autocomplete="off">
         <div class="input-group-append">
-          <span class="input-group-text" id="addon-wrapping" ><i class="fa fa-search" aria-hidden="true"></i></span>
+          <button class="input-group-text" data-toggle="collapse" href="#collapseSearch" style="outline: none !important;"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </div>
-    </div> -->
+      <div class="collapse mr-3" id="collapseSearch" style="position: absolute !important;">
+        <div class="card card-body">
+          Anim pariatur cliche reprehende squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div>
+    </div>
 
-    
-    <input list="seachChats" name="browser" id="browser">
+<!--     
+    <input list="seachChats" name="browser" id="browser" class="bg-dark form-control text-white">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
       <datalist id="seachChats">
-        <% rooms.forEach(room => { %>
-          <option> <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#<%= room.name %>' 
+        < rooms.forEach(room => { %>
+          <option> <a class="nav-link" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#<= room.name %>' 
               aria-controls="v-pills-home" aria-selected="true">
               <div class="row justify-content-center px-1">
-                <span> <%= room.name %> </span>
-                <!-- <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span> -->
+                <span> <= room.name %> </span>
               </div>
             </a> </option>
-        <% }) %>
+        <}) %>
       </datalist>
-    </div>
+    </div> -->
 
     <div class="d-flex justify-content-between mx-3 mt-5 align-items-center">
       <a class="text-muted h5" data-toggle="collapse" href="#pinnedChats" role="button" aria-expanded="false"
