@@ -5,16 +5,14 @@
       <div class="input-group  ">
         <input type="text" class="form-control bg-dark text-white" id="searchInput" autocomplete="off">
         <div class="input-group-append">
-          <button class="input-group-text" id="searchButton" data-toggle="collapse" href="#collapseSearch"
+          <button class="input-group-text" id="searchButton" href="#collapseSearch"
             style="outline: none !important;"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
       </div>
       <div class="collapse w-100" id="collapseSearch">
-        <div class="card card-body p-0 " >
-          <ul class="list-group list-group-flush">
-           <% rooms.forEach(room => { %>
-            <li class="list-group-item text-left"> <%= room.name %> </li>
-           <% }) %>
+        <div class="card card-body p-0" >
+          <ul class="list-group list-group-flush" id="searchList">
+          
           </ul>
         </div>
       </div>

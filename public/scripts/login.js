@@ -4,10 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let passwordField = document.getElementById('passwordField');
   let loginBtn = document.getElementById('loginBtn');
   let loadingSpinner = document.getElementById('loadingSpinner');
-  let alert = document.getElementById('alert');
-  let alertMessage = document.getElementById('alert-message');
-
-
+ 
   loginBtn.addEventListener('click', () => {
     loadingSpinner.classList.remove('d-none');
     fetch('/auth/login', {

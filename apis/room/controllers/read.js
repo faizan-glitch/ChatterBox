@@ -8,7 +8,12 @@ const getAllRooms = async (req, res) => {
 
 
 const getRoomByID = async (req, res) => {
-  const room = await Room.findById(req.params.id);
+  const room = await Room.find(req.params.id);
+  res.status(200).json(room);
+};
+
+const getRoomByName = async (req, res) => {
+  const room = await Room.findOne({ name: req.body.name });
   res.status(200).json(room);
 };
 
@@ -20,5 +25,6 @@ const getRoomsByUserID = async (req, res) => {
 export default {
   getRoomByID,
   getAllRooms,
+  getRoomByName,
   getRoomsByUserID
 }

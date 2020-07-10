@@ -21,6 +21,8 @@ router.get('/user/:id', readController.getRoomsByUserID);
 
 router.get('/:id', readController.getRoomByID);
 
+router.post('/name', readController.getRoomByName);
+
 // Rooms can only be deleted if the req.user.id === ownerID of that room. 
 // This route will delete all rooms created by the User
 router.delete('/user/:id', deleteController.deleteRoomsByUserID);
