@@ -7,6 +7,7 @@ const createController = (req, res) => {
     ownerID: req.user._id,
     password: req.body.password,
     ageRestricted: req.body.ageRestricted ? true : false,
+    members: [{_id: req.user._id}]
   });
   newRoom.save()
     .then(room => {

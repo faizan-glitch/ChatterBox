@@ -31,6 +31,9 @@ const RoomSchema = new Schema({
   messages: {
     type: Array,
     default: ["Hello", "World", "Musicaspidnasind aisnd ", "asoidnaio sndasiodn", "asdmapsodm apsodm pasmd po" ]
+  },
+  members: {
+    type: Array
   }
 });
 
