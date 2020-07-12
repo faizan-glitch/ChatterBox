@@ -36,11 +36,6 @@ body,html{
   overflow-x: hidden;
 }
 
-/* .online-users{
-  display: flex;
-  flex-direction: column-reverse;
-} */
-
 .messages{
   overflow-y:scroll;
   height: 67vh;
@@ -48,21 +43,6 @@ body,html{
 .messages div{
   margin: 0 0 0.4rem 0;
 }
-
-/* .online{
-  width: 100%;
-  height: 1.9rem;
-  background-color: #333;
-  align-content: center;
-  text-align: center;
-  margin: 0.3rem 0;
-} */
-/* .dot{
-  font-size: 70%;
-  border-radius: 50%;
-  background-color: #009670;
-  color: #009670;
-} */
 
 .message{
   align-content: left;
