@@ -43,7 +43,7 @@ body,html{
 
 .messages{
   overflow-y:scroll;
-  height: 77vh;
+  height: 67vh;
 }
 .messages div{
   margin: 0 0 0.4rem 0;
@@ -92,10 +92,9 @@ body,html{
 ::-webkit-scrollbar-thumb:hover { background: #555; }
 
 @media only screen and (max-width: 800px) {
-  /* .headings{display: none;} */
   .b-r{display: none;}
-  /* .online-users{flex-direction: row-reverse; } */
-  /* .message{ width: 100%; } */
+  .messages{ height: 60vh; }
   .mainpage{ flex-direction: column; justify-content: space-around;}
   .col{width: 100%;}
+  #roominfo{display: none;}
 }

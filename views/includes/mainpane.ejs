@@ -1,4 +1,4 @@
-<div class="tab-content" id="v-pills-tabContent">
+<div class="container tab-content mt-4" id="v-pills-tabContent">
   <%- include('../partials/invitemodal.ejs') %>
 
   <% rooms.forEach(room => { %>
@@ -9,7 +9,7 @@
 
         <%- include('../partials/chatscreen.ejs', { "room": room }) %>
       </div>
-      <div class="col-sm-3 p-0 m-0" style="background-color: #212121;">
+      <div class="col-sm-3 p-0 m-0" style="background-color: #212121;" id="roominfo">
         <%- include('../partials/infoscreen.ejs', { "room": room }) %>
       </div>
     </div>
