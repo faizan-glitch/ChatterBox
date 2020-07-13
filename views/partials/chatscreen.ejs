@@ -1,15 +1,17 @@
 <div class="h-100 w-100 d-flex-column mt-3">
 
   <div class="row justify-content-between d-flex">
-    <div class="col-1 mt-1">
-      <h4><%= room.name %></h4>
+    <div class="col-1 mt- d-flex justify-content-left">
+      <a class="nav-link px-0 mr-3" href="" title="Go Back" data-toggle=""> <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+      <h4 class="mb-0 pt-1"><%= room.name %></h4>
     </div>
 
     <ul class="nav ">
-      <li class="nav-item">
+      
+      <!-- <li class="nav-item">
         <a class="nav-link active" href="#inviteUser" title="Invite a friend" data-toggle="modal"> <i class="fa fa-user-friends"
             aria-hidden="true"></i></a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="" data-toggle="tooltip" title="Leave this chat"> <i class="fa fa-sign-out-alt"
             aria-hidden="true"></i></a>
