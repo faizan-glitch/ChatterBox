@@ -43,7 +43,7 @@ body,html{
 
 .messages{
   overflow-y:scroll;
-  height: 77vh;
+  height: 74vh;
 }
 .messages div{
   margin: 0 0 0.4rem 0;
@@ -98,8 +98,6 @@ body,html{
   /* .message{ width: 100%; } */
   .mainpage{ flex-direction: column; justify-content: space-around;}
   .col{width: 100%;}
-  #sidepane{
-    position: absolute;
-  }
-  
+  #sidepane{ position: absolute; }
+  .messages{ height: 70vh; }
 }
