@@ -13,6 +13,8 @@
       <div class="modal-body">
         <form action="/invite" method="POST">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <input type="hidden" name="name" value="<%= room.name %>">
+
           <input type="text" name="email" placeholder="Email Address" class="bg-secondary text-white form-control"/>
       </div>
 
