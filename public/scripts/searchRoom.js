@@ -11,21 +11,21 @@ searchButton.addEventListener('click', () => {
       'CSRF-Token': csrfToken
     },
     body: JSON.stringify({
-      name: searchInput.value
+      name: { '$regex': searchInput.value, '$options': 'i' }
     })
   })
-  .then(async res => {
-    res = await res.json();
-    if(res) {
-      $('#searchList').html(`<li class="list-group-item text-left"> ${res.name} </li>`);
-    }
-    else {
-      $('#searchList').html(`<li class="list-group-item text-left"> No Room Found. <i class="fa fa-frown" aria-hidden="true"></i> </li>`);
-    }
-    $('#collapseSearch').collapse('show');
-  })
-  .catch(err => {
-    console.log(err);       
-  })
-  
+    .then(async res => {
+      res = await res.json();
+      if (res) {
+        $('#searchList').html(`<li class="list-group-item text-left"> ${res.name} </li>`);
+      }
+      else {
+        $('#searchList').html(`<li class="list-group-item text-left"> No Room Found. <i class="fa fa-frown" aria-hidden="true"></i> </li>`);
+      }
+      $('#collapseSearch').collapse('show');
+    })
+    .catch(err => {
+      console.log(err);
+    })
+
 })
