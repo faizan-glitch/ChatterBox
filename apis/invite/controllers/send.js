@@ -28,6 +28,10 @@ const sendController = (req, res) => {
       return transporter.sendMail(Email);
     })
     .then(mailStatus => {
+      console.log(mailStatus);
+      
+      console.log("Success");
+      
       return res.status(200).redirect('/app');  
     });
 };

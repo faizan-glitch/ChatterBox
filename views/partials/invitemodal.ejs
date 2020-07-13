@@ -1,9 +1,10 @@
 <!-- Modal -->
-<div class="modal fade" id="inviteUser" tabindex="-1" role="dialog" aria-labelledby="inviteUser" aria-hidden="true">
+<div class="modal fade" id="inviteUser<%= room.name %>" tabindex="-1" role="dialog" aria-labelledby="inviteUser" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="">Invite a User</h5>
+        <h5 class="modal-title" id="">Invite a User to <%= room.name %>
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,7 +13,6 @@
       <div class="modal-body">
         <form action="/invite" method="POST">
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <input type="text" name="name"  placeholder="Room Name" class="bg-secondary text-white form-control"/>
           <input type="text" name="email" placeholder="Email Address" class="bg-secondary text-white form-control"/>
       </div>
 
