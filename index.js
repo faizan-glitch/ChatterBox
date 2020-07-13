@@ -97,8 +97,7 @@ const socketIO = io(server);
 
 socketIO.on('connection', (socket) => {
   console.log("A user connected");
-  
-})
+});
 
 // Connect with MongoDB
 mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true })

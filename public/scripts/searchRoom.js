@@ -24,7 +24,7 @@ searchButton.addEventListener('click', () => {
     else {
       $('#searchList').html(`<li class="list-group-item text-left"> No Room Found. <i class="fa fa-frown" aria-hidden="true"></i> </li>`);
     }
-    $('#collapseSearch').collapse();
+    $('#collapseSearch').collapse('show');
   })
   .catch(err => {
     console.log(err);       
