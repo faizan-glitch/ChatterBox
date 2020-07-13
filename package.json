@@ -1,6 +1,6 @@
 {
   "name": "ChatterBox",
-  "version": "0.10.9",
+  "version": "0.11.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,11 @@
     "dev": "nodemon index"
   },
   "type": "module",
-  "keywords": ["Chat App", "SocketIO", "ChatterBox"],
+  "keywords": [
+    "Chat App",
+    "SocketIO",
+    "ChatterBox"
+  ],
   "author": "Faizan Zahid",
   "license": "ISC",
   "dependencies": {
@@ -31,6 +35,7 @@
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0",
     "stripe": "^8.68.0",
     "uuid": "^8.1.0"
   },

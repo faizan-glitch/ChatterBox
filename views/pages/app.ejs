@@ -18,9 +18,11 @@
 </body>
 
 <%- include('../includes/end') %>
+<script src="socket.io-client/dist/socket.io.js"></script>
 <script> 
   const userID = `<%= user._id %>`;
   var stripePublicKey = '<%= stripePublicKey %>';
+  var socketIO = io();
 </script>
   <script src="scripts/stripe.js"></script>
 <script src="scripts/app.js"></script>

@@ -16,6 +16,8 @@ import passport from 'passport';
 import passportConfig from './config/passport.js'
 import helmet from 'helmet';
 import flash from 'connect-flash';
+import http from 'http';
+import io from 'socket.io';
 
 dotenv.config();
 
@@ -89,9 +91,18 @@ app.get('**', (req, res) => {
   res.redirect('/404');
 });
 
+// Setup Socket.io
+const server = http.createServer(app);
+const socketIO = io(server);
+
+socketIO.on('connection', (socket) => {
+  console.log("A user connected");
+  
+})
+
 // Connect with MongoDB
 mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(res => {
-    app.listen(PORT, console.log(`Server running on port: ${PORT}`));
+    server.listen(PORT, console.log(`Server running on port: ${PORT}`));
   })
   .catch(err => console.log(err));
