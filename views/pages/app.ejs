@@ -2,17 +2,16 @@
 
 <body>
 
-  <div class="container-fluid d-flex justify-content-center px-0 mx-0 " id="app-container">
-    <div class="row w-100 text-center">
-      <%- include('../partials/appmodal.ejs') %> 
-      
-      <div class="col-sm-2 bg-grey justify-content-center d-flex w-100 mx-0 px-0">
-        <%- include('../includes/sidepane.ejs') %> 
-      </div>
-      <div class="col-sm-10 bg-dark">
-        <%- include('../includes/mainpane.ejs') %> 
-      </div>
+  <div class="container-fluid d-flex justify-content-start px-0 mx-0 w-100" id="app-container">
+
+    <div id="sidepane" class="col-md-2 px-0 mx-0 show h-100 bg-primary collapse">
+      <%- include('../includes/sidepane')%>
     </div>
+
+    <div id="mainpane" class="h-100 w-100 bg-secondary hide mainpage"> 
+      <%- include('../includes/mainpane')%>
+     </div>
+
   </div>
 
 </body>
