@@ -1,16 +1,17 @@
-<div class="tab-content" id="v-pills-tabContent">
+<div class="tab-content h-100 w-100 id="v-pills-tabContent">
   <%- include('../partials/invitemodal.ejs') %>
 
   <% rooms.forEach(room => { %>
-  <div class="tab-pane fade show" id="<%= room.name %>" role="tabpanel">
-    <div class="row">
-      <div class="col-sm-9">
+  <div class="tab-pane fade h-100" id="<%= room.name %>" role="tabpanel">
+    <div class="row mx-0 h-100">
+      <div class="col-sm-9 bg-dark h-100">
         <!-- We can pass objects to child views like this -->
-
         <%- include('../partials/chatscreen.ejs', { "room": room }) %>
+        
       </div>
       <div class="col-sm-3 p-0 m-0" style="background-color: #212121;">
         <%- include('../partials/infoscreen.ejs', { "room": room }) %>
+        
       </div>
     </div>
   </div>

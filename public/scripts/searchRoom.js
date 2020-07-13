@@ -2,8 +2,6 @@ let searchInput = document.getElementById('searchInput');
 let searchButton = document.getElementById('searchButton');
 let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
-console.log(searchButton);
-
 searchButton.addEventListener('click', () => {
   console.log(searchInput.value);
   fetch('/room/name', {

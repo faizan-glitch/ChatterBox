@@ -41,7 +41,7 @@
     </div>
 
     <div class="d-flex justify-content-between mx-3 mt-3 align-items-center">
-      <a class="text-muted h5" data-toggle="collapse" href="#roomsList" role="button" aria-expanded="false"
+      <a class="text-muted h5" data-toggle="collapse" data-target="#roomsList" href="#roomsList" role="button" aria-expanded="false"
         aria-controls="collapseExample">
         Rooms
       </a>
@@ -52,7 +52,7 @@
     <div class="collapse" id="roomsList">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <% rooms.forEach(room => { %>
-        <a class="nav-link openroom" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#<%= room.name %>'
+        <a class="nav-link openroom" id="v-pills-home-tab" onclick="goodbyeworld(event)" data-toggle="pill" role="tab" href='#<%= room.name %>'
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between px-1">
             <span> <%= room.name %> </span>
@@ -85,9 +85,9 @@
       </div>
     </div>
     
-    <div class="text-center">
+    <!-- <div class="text-center">
       <button class="btn" data-target="#sidepane" data-toggle="collapse" >X</button>
-    </div>
+    </div> -->
 
   </div>
 
@@ -125,11 +125,24 @@
 </div>
 
 <script src="scripts/searchRoom.js"></script>
-<script>
-  if(screen.width < 800){
+<!-- <script>
+  // if(screen.width < 800){
   $('.openroom').click(function(){
-   $('#sidepane').collapse();
-   $('.mainpage').removeClass('d-none') ;
+    console.log("HEllo wor");
+    
+   $('#mainpan').show();
+  //  $('.mainpage').removeClass('d-none') ;
   });
-}
+// }
+</script> -->
+
+
+<script>
+  let goodbyeworld = (e) => {
+    // console.log("Goodbye");
+    // $('#sidepane').collapse('hide');
+
+    $('.mainpan').collapse('show');
+    return;
+  }
 </script>

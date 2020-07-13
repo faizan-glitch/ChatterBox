@@ -2,12 +2,16 @@
 
   <div class="row justify-content-between d-flex">
     <div class="col-1 mt- d-flex justify-content-left">
-      <button class="btn px-0 mr-3 goback" title="Go Back" data-target="#sidepane" data-toggle="collapse"> <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+      <!-- <a href='/app' class="d-sm-none btn px-0 mr-3 goback" title="Go Back"> <i class="fa fa-arrow-left"
+          aria-hidden="true"></i></a> -->
+
+      <button class="d-sm-none btn px-0 mr-3" id="go-back<%= room.name %>" onclick="helloworld()" title="Go Back" data-toggle="collapse" data-toggle="#sidepane"> <i class="fa fa-arrow-left"
+          aria-hidden="true"></i></button>
       <h4 class="mb-0 pt-1"><%= room.name %></h4>
     </div>
 
     <ul class="nav ">
-      
+
       <!-- <li class="nav-item">
         <a class="nav-link active" href="#inviteUser" title="Invite a friend" data-toggle="modal"> <i class="fa fa-user-friends"
             aria-hidden="true"></i></a>
@@ -41,7 +45,7 @@
         <div class="msg"> Username:
           <i class="time"> 00:00am </i>
           <p class="message"> <%= message %> </p>
-          
+
         </div>
 
         <% }) %>
@@ -57,9 +61,10 @@
 </div>
 
 <script>
-  if(screen.width < 800){
-  $('.goback').click(function(){
-    $('.mainpage').addClass('d-none') ;
-  });
-}
+  let helloworld = () => {    
+    // console.log("HEllo");
+    $('.mainpan').collapse('hide');
+    $('#sidepane').collapse('show');
+    // $('#sidepane').css({'z-index': 1})
+  }
 </script>
