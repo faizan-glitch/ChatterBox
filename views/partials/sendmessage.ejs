@@ -1,10 +1,12 @@
-<div class="row">
-    <div class="col-9 col-sm-10">
-        <input type="text" name="message" class="form-control bg-secondary text-white" placeholder="Write a message">
+<form id="send_msg_form">
+    <div class="row">
+        <div class="col-9 col-sm-10">
+            <input type="text" name="message" id="send_msg" class="form-control bg-secondary text-white" placeholder="Write a message" autocomplete="off">
+        </div>
+        <div class="col-3 col-sm-2" >
+            <button name="button" class="btn btn-success w-100">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            </button>
+        </div>
     </div>
-    <div class="col-3 col-sm-2" >
-        <button type="button" name="button" class="btn btn-success w-100">
-            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-        </button>
-    </div>
-</div>
+</form>

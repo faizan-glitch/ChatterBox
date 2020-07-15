@@ -95,8 +95,25 @@ app.get('**', (req, res) => {
 const server = http.createServer(app);
 const socketIO = io(server);
 
+//When client connects
 socketIO.on('connection', (socket) => {
   console.log("A user connected");
+
+  socket.emit('message', 'Welcome to ChatterBox');
+
+  //Broadcast to all users about this user's connection.
+  socket.broadcast.emit('message', 'A user has joined this Chat');
+
+  //when a user disconnects
+  socket.on('disconnect', () =>{
+    socketIO.emit('message', 'A user has left this chat')
+  });
+
+  //recieve chat message
+  socket.on('chatmsg', message => {
+    socketIO.emit('message', message);
+  });
+
 });
 
 // Connect with MongoDB
