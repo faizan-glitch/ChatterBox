@@ -17,7 +17,15 @@ searchButton.addEventListener('click', () => {
     .then(async res => {
       res = await res.json();
       if (res) {
-        $('#searchList').html(`<li class="list-group-item text-left"> ${res.name} </li>`);
+        $('#searchList').html(`<li class="list-group-item text-left"> 
+        <a class="nav-link openroom" id="v-pills-home-tab" onclick="goodbyeworld(event)" data-toggle="pill" role="tab" href='#${res.name}'
+          aria-controls="v-pills-home" aria-selected="true">
+          <div class="row justify-content-between px-1">
+            <span> ${res.name} </span>
+            <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
+          </div>
+        </a>
+        </li>`);
       }
       else {
         $('#searchList').html(`<li class="list-group-item text-left"> No Room Found. <i class="fa fa-frown" aria-hidden="true"></i> </li>`);
