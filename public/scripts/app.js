@@ -33,3 +33,42 @@
 //           }
 //       }
 //   }
+
+const socket = io('ws://localhost:5000');
+
+  socket.on('connect', () => {
+    socket.send('Hello!');
+  });
+
+  socket.on('message', message => {
+    console.log(message);
+
+    // show message on screen
+    showMessageInChat(message);
+
+    //scroll down to see the message
+    const messagesScroll = document.querySelector('.messages');
+    messagesScroll.scrollTop = messagesScroll.scrollHeight;
+  });
+
+
+  //Sent messages
+  const form = document.getElementById('send_msg_form');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const msg = event.target.send_msg.value;
+    // send message
+    socket.emit('chatmsg', msg);
+    //empty msg feild
+    event.target.send_msg.value = '';
+    event.target.send_msg.focus();
+
+  });
+
+  function showMessageInChat(message){
+    const mydiv = document.createElement('div');
+    mydiv.classList.add('msg');
+    mydiv.innerHTML = "Username: <i class='time'> 00:00am </i> <p class='message'>" + message + " </p>" ;
+    document.querySelector('.messages').appendChild(mydiv);
+  }
