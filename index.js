@@ -95,8 +95,12 @@ app.get('**', (req, res) => {
 const server = http.createServer(app);
 const socketIO = io(server);
 
-socketIO.on('connection', (socket) => {
-  console.log("A user connected");
+socketIO.on('connection', socket => {
+  socket.join('Python');
+
+  socket.on('message', (id, msg) => {
+    console.log(`${id} sent the Message: ${msg}`);    
+  });
 });
 
 // Connect with MongoDB
