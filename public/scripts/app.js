@@ -40,11 +40,10 @@ const socket = io('ws://localhost:5000');
     socket.send('Hello!');
   });
 
-  socket.on('message', message => {
-    console.log(message);
+  socket.on('message', data => {
 
     // show message on screen
-    showMessageInChat(message);
+    showInChat(data);
 
     //scroll down to see the message
     const messagesScroll = document.querySelector('.messages');
@@ -58,17 +57,20 @@ const socket = io('ws://localhost:5000');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const msg = event.target.send_msg.value;
+    let time = new Date(Date.now());
+    let current_time = time.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});
+
     // send message
-    socket.emit('chatmsg', msg);
+    socket.emit('chatmsg', { user: username , message : msg , time: current_time } );
     //empty msg feild
     event.target.send_msg.value = '';
     event.target.send_msg.focus();
 
   });
 
-  function showMessageInChat(message){
+  function showInChat(data){
     const mydiv = document.createElement('div');
     mydiv.classList.add('msg');
-    mydiv.innerHTML = "Username: <i class='time'> 00:00am </i> <p class='message'>" + message + " </p>" ;
+    mydiv.innerHTML = data.user + ": <i class='time'> " + data.time + " </i> <p class='message'>" + data.message + " </p>" ;
     document.querySelector('.messages').appendChild(mydiv);
   }

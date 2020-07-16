@@ -99,19 +99,22 @@ const socketIO = io(server);
 socketIO.on('connection', (socket) => {
   console.log("A user connected");
 
-  socket.emit('message', 'Welcome to ChatterBox');
+  let time = new Date(Date.now());
+  let current_time = time.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});
+
+  socket.emit('message', {user: 'Bot' , message: 'Welcome to ChatterBox' , time: current_time });
 
   //Broadcast to all users about this user's connection.
-  socket.broadcast.emit('message', 'A user has joined this Chat');
+  socket.broadcast.emit('message',  {user: 'Bot' , message: 'A user has joined this Chat' , time: current_time });
 
   //when a user disconnects
   socket.on('disconnect', () =>{
-    socketIO.emit('message', 'A user has left this chat')
+    socketIO.emit('message', {user: 'Bot' , message: 'A user has left this chat' , time: current_time })
   });
 
   //recieve chat message
-  socket.on('chatmsg', message => {
-    socketIO.emit('message', message);
+  socket.on('chatmsg', data => {
+    socketIO.emit('message', data);
   });
 
 });
