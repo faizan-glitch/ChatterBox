@@ -57,11 +57,9 @@ const socket = io('ws://localhost:5000');
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const msg = event.target.send_msg.value;
-    let time = new Date(Date.now());
-    let current_time = time.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});
 
     // send message
-    socket.emit('chatmsg', { user: username , message : msg , time: current_time } );
+    socket.emit('chatmsg', { user: username , message : msg , time: Date.now() } );
     //empty msg feild
     event.target.send_msg.value = '';
     event.target.send_msg.focus();
@@ -69,8 +67,11 @@ const socket = io('ws://localhost:5000');
   });
 
   function showInChat(data){
+    let time = new Date(data.time);
+    let current_time = time.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});
+
     const mydiv = document.createElement('div');
     mydiv.classList.add('msg');
-    mydiv.innerHTML = data.user + ": <i class='time'> " + data.time + " </i> <p class='message'>" + data.message + " </p>" ;
+    mydiv.innerHTML = data.user + ": <i class='time'> " + current_time + " </i> <p class='message'>" + data.message + " </p>" ;
     document.querySelector('.messages').appendChild(mydiv);
   }
