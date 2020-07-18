@@ -1,9 +1,9 @@
 import User from '../../../models/User.js';
 import Room from '../../../models/Room.js';
 
-const acceptController = (req, res) => {
+const acceptController = (req, res) => { 
   if (!req.isAuthenticated()) {
-    return res.status(403).send();
+    return res.status(403).send('Forbidden');
   };
   Promise.all(
     [
@@ -16,8 +16,8 @@ const acceptController = (req, res) => {
       if (!(room && user)) {
         return res.status(404).send();
       }
-      // Add the User to that particular Room
-      room.members.push({ _id: user._id })
+      // Add the User to that particular Room     
+      room.members.push({ _id: user.id })
       room.save()
         .then(room => {
           return res.status(200).send('Done');

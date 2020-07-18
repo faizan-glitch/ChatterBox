@@ -75,9 +75,9 @@
 
             <div id="collapseMembers" class="collapse hide" aria-labelledby="headingOne"
               data-parent="#accordionExample">
-              <div class="card-body text-left text-muted">
+              <div class="card-body text-left text-muted pb-0">
                 <% room.members.forEach(member => { %>
-                 <%= member._id %> 
+                 <p><%= member.displayName %> </p>
                 <% }) %>
               </div>
             </div>
