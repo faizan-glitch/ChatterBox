@@ -1,6 +1,7 @@
+
 <div class="w-100 h-100 pt-4 justify-content-between d-flex flex-column">
   <div id="sidepane-header">
-
+    
     <div id="search" class="w-100 px-3" style="position: absolute !important;">
       <div class="input-group  ">
         <input type="text" class="form-control bg-dark text-white" id="searchInput" autocomplete="off">
@@ -21,7 +22,7 @@
         </div>
       </div>
     </div>
-
+    
     <div class="d-flex justify-content-between mx-3 mt-5 align-items-center">
       <a class="text-muted h5" data-toggle="collapse" href="#pinnedChats" role="button" aria-expanded="false"
         aria-controls="pinnedChats">
@@ -58,7 +59,7 @@
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between px-1">
             <span> <%= room.name %> </span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
+            <!-- <span class="badgboote badge-pilsl badge-danger d-flex align-items-center">1</span> -->
           </div>
         </a>
         <% }) %>
@@ -80,7 +81,7 @@
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between">
             <span>Channel 1</span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">10</span>
+            <!-- <span class="badge badge-pilsl badge-danger d-flex align-items-center">10</span> -->
           </div>
         </a>
 
@@ -120,31 +121,18 @@
               <!-- <a class="dropdown-item" href="#">Dropdown link</a> -->
             </div>
           </div>
-        </div>
+        </div>    
       </div>
     </div>
   </div>
+  
 </div>
 
-<script src="scripts/searchRoom.js"></script>
-<!-- <script>
-  // if(screen.width < 800){
-  $('.openroom').click(function(){
-    console.log("HEllo wor");
-    
-   $('#mainpan').show();
-  //  $('.mainpage').removeClass('d-none') ;
-  });
-// }
-</script> -->
 
+<script src="scripts/searchRoom.js"></script>
 
 <script>
   let goodbyeworld = (e) => {
-    // console.log("Goodbye");
-    // $('#sidepane').collapse('hide');
-
     $('.mainpan').collapse('show');
-    return;
   }
 </script>

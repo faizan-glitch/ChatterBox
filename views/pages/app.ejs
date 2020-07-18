@@ -1,7 +1,9 @@
 <%- include('../includes/head') %>
 
 <body>
-  <%- include('../partials/appmodal') %> 
+  
+  <%- include('../partials/appmodal') %>
+
   <div class="container-fluid d-flex justify-content-start px-0 mx-0 w-100" id="app-container">
 
     <div id="sidepane" class="col-md-2 px-0 mx-0 show h-100 collapse">
@@ -17,10 +19,10 @@
 
 <%- include('../includes/end') %>
 <script src="socket.io-client/dist/socket.io.js"></script>
-<script> 
+<script>
   const userID = `<%= user._id %>`;
   var stripePublicKey = '<%= stripePublicKey %>';
   var socketIO = io();
 </script>
-  <script src="scripts/stripe.js"></script>
+<script src="scripts/stripe.js"></script>
 <script src="scripts/app.js"></script>

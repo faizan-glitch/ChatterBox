@@ -3,7 +3,7 @@ let searchButton = document.getElementById('searchButton');
 let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
 searchButton.addEventListener('click', () => {
-  console.log(searchInput.value);
+  console.log(csrfToken);
   fetch('/room/name', {
     method: 'POST',
     headers: {
@@ -18,7 +18,7 @@ searchButton.addEventListener('click', () => {
       res = await res.json();
       if (res) {
         $('#searchList').html(`<li class="list-group-item text-left"> 
-        <a class="nav-link openroom" id="v-pills-home-tab" onclick="goodbyeworld(event)" data-toggle="pill" role="tab" href='#${res.name}'
+        <a class="nav-link openroom" id="v-pills-home-tab" onclick=($('#joinUser').modal('show')) data-toggle="pill" role="tab" href='#${res.name}'
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between px-1">
             <span> ${res.name} </span>

@@ -13,6 +13,8 @@ const getRoomByID = async (req, res) => {
 };
 
 const getRoomByName = async (req, res) => {
+  console.log(req.body.name);
+  
   const room = await Room.findOne({ name: req.body.name });
   res.status(200).json(room);
 };

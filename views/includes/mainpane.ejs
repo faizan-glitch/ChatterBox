@@ -1,3 +1,5 @@
+<%- include('../partials/joinmodal', { "user": user }) %>
+
 <div class="tab-content h-100 w-100 id="v-pills-tabContent">
 
   <% rooms.forEach(room => { %>
@@ -15,4 +17,5 @@
     </div>
   </div>
   <% }) %>
+  <%- include('../partials/fab')%>
 </div>
