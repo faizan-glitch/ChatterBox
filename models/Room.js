@@ -34,6 +34,10 @@ const RoomSchema = new Schema({
   },
   members: {
     type: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+  },
+  description: {
+    type: String,
+    required: true
   }
 });
 
