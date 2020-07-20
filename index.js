@@ -95,11 +95,24 @@ app.get('**', (req, res) => {
 const server = http.createServer(app);
 const socketIO = io(server);
 
-socketIO.on('connection', socket => {
-  socket.join('Python');
 
-  socket.on('message', (id, msg) => {
-    console.log(`${id} sent the Message: ${msg}`);    
+//When client connects
+socketIO.on('connection', (socket) => {
+  console.log("A user connected");
+
+  socket.emit('message', {user: 'Bot' , message: 'Welcome to ChatterBox' , time: Date.now() , room: 'myChatroom'});
+
+  //Broadcast to all users about this user's connection.
+  socket.broadcast.emit('message',  {user: 'Bot' , message: 'A user has joined this Chat' , time: Date.now() , room: 'General'});
+
+  //when a user disconnects
+  socket.on('disconnect', () =>{
+    socketIO.emit('message', {user: 'Bot' , message: 'A user has left this chat' , time: Date.now() , room: 'General'})
+  });
+
+  //recieve chat message
+  socket.on('chatmsg', data => {
+    socketIO.emit('message', data);
   });
 });
 
