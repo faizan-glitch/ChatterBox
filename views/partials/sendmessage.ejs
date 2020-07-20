@@ -1,7 +1,7 @@
-<form id="send_msg_form">
+<form class="<%= room.name %>" id="<%= room.name %>_sendmessage" onsubmit="sendMessage(event,'<%= room.name %>')">
     <div class="row">
         <div class="col-9 col-sm-10">
-            <input type="text" name="message" id="send_msg" class="form-control bg-secondary text-white" placeholder="Write a message" autocomplete="off">
+            <input type="text" name="message" id="<%= room.name %>_messaage" class="form-control bg-secondary text-white" placeholder="Write a message" autocomplete="off">
         </div>
         <div class="col-3 col-sm-2" >
             <button name="button" class="btn btn-success w-100">
@@ -10,3 +10,7 @@
         </div>
     </div>
 </form>
+
+<script>$(".<%= room.name %>").submit(function(e) {
+    e.preventDefault();
+});</script>

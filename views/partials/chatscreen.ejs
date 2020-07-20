@@ -39,7 +39,7 @@
       <!-- <h3>Messages:</h3> -->
 
       <!-- messages -->
-      <div class="d-flex flex-column messages mb-3">
+      <div class="d-flex flex-column mb-3" id="<%=room.name%>_messages">
         <% room.messages.forEach(message => { %>
 
         <div class="msg"> Username:
@@ -55,7 +55,7 @@
 
 
     <!-- type Message in chat area -->
-    <%- include('../partials/sendmessage') %>
+    <%- include('../partials/sendmessage', { "roomname": room.name }) %>
 
   </div>
 </div>
