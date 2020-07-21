@@ -50,18 +50,18 @@ export default (passport) => {
           if (!user.verified) {
             return done(null, false, { message: "Account is not verified." });
           }
+          
           bcrypt.compare(password, user.password)
             .then(isMatch => {
               if (isMatch) {
+                done(null, user);
                 user.updateOne(
                   {
                     $set: {
                       signedIn: true
                     }
                   }
-                ).then(response => {
-                  return done(null, user);
-                });
+                )
               }
               else {
                 return done(null, false, { message: 'Password is incorrect.' });
