@@ -1,6 +1,6 @@
 import Room from '../../../models/Room.js';
 
-const deleteRoomByID = (req, res) => { 
+const deleteRoomByID = (req, res) => {
   Room.findOneAndDelete(
     {
       _id: req.params.id,
@@ -13,11 +13,28 @@ const deleteRoomByID = (req, res) => {
 };
 
 const deleteRoomsByUserID = async (req, res) => {
-  const result = await Room.deleteMany({ ownerID: req.user._id });  
+  const result = await Room.deleteMany({ ownerID: req.user._id });
   res.status(200).send(result);
+};
+
+const deleteUserFromRoom = async (req, res) => {
+  if (!req.isAuthenticated()) {
+    return res.status(403).send();
+  }
+  const result = await Room.updateOne({ _id: req.body.roomID },
+    {
+      $pull: {
+        members: {
+          _id: req.body.userID
+        }
+      }
+    }
+  )
+  res.status(200).send();
 };
 
 export default {
   deleteRoomByID,
-  deleteRoomsByUserID
+  deleteRoomsByUserID,
+  deleteUserFromRoom
 };

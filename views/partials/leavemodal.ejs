@@ -1,9 +1,9 @@
 <!-- Modal -->
-<div class="modal fade" id="leaveRoom<%= room.name %>" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal fade" id="leaveRoom<%= room.name %>" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="">Confirm 
+        <h5 class="modal-title" id="">Confirm
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -11,14 +11,38 @@
       </div>
 
       <div class="modal-body">
-       <p>Are you sure you want to leave the room?</p>
+        <p>Are you sure you want to leave the room <%= room.name %>?</p>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-danger">Leave</button>
+        <button type="submit" class="btn btn-danger" id="leave-room<%=room.name%>">Leave</button>
       </div>
     </div>
   </div>
 </div>
 <!-- end Modal -->
+
+<script>
+  if(typeof leaveBtn === undefined) {
+    let leaveBtn;
+  } 
+  leaveBtn = document.getElementById('leave-room<%= room.name%>');
+  leaveBtn.addEventListener('click', () => {
+    fetch('/room/leave', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'CSRF-Token': '<%= csrfToken %>'
+      },
+      body: JSON.stringify({
+        userID: '<%= user.id %>',
+        roomID: '<%= room.id %>'
+      })
+    })
+    .then(res => {
+      window.location.reload();     
+    })
+    .catch(err => console.log(err));
+  });
+</script>

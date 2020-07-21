@@ -27,4 +27,6 @@ router.post('/name', readController.getRoomByName);
 // This route will delete all rooms created by the User
 router.delete('/user/:id', deleteController.deleteRoomsByUserID);
 
+router.delete('/leave', deleteController.deleteUserFromRoom);
+
 router.delete('/:id', deleteController.deleteRoomByID);

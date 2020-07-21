@@ -16,7 +16,7 @@ const createController = (req, res) => {
       res.status(200).redirect('/app');
     })
     .catch(err => console.log(err)
-    )
+    );
 };
 
 export default createController;

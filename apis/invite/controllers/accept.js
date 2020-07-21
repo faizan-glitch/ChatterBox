@@ -16,8 +16,10 @@ const acceptController = (req, res) => {
       if (!(room && user)) {
         return res.status(404).send();
       }
-      // Add the User to that particular Room     
-      room.members.push({ _id: user.id })
+      // Add the User to that particular Room  
+      console.log(user);
+         
+      room.members.push({ _id: user._id })
       room.save()
         .then(room => {
           return res.status(200).send('Done');
