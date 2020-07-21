@@ -1,11 +1,12 @@
 {
   "name": "ChatterBox",
-  "version": "0.13.2",
+  "version": "0.13.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "clean": "kill -9 $(lsof -t -i:5000)"
   },
   "type": "module",
   "keywords": [
