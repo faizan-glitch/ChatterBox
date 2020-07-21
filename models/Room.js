@@ -33,7 +33,7 @@ const RoomSchema = new Schema({
     default: ["Hello", "World", "Musicaspidnasind aisnd ", "asoidnaio sndasiodn", "asdmapsodm apsodm pasmd po" ]
   },
   members: {
-    type: [{ _id: { type: Schema.Types.ObjectId, ref: 'User' }}]
+    type: [{ type: Schema.Types.ObjectId, ref: 'User' }]
   },
   description: {
     type: String,
