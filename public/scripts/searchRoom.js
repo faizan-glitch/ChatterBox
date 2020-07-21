@@ -3,7 +3,6 @@ let searchButton = document.getElementById('searchButton');
 let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
 searchButton.addEventListener('click', () => {
-  console.log(csrfToken);
   fetch('/room/name', {
     method: 'POST',
     headers: {
@@ -17,12 +16,11 @@ searchButton.addEventListener('click', () => {
     .then(async res => {
       res = await res.json();
       if (res) {
-        $('#searchList').html(`<li class="list-group-item text-left"> 
-        <a class="nav-link openroom" id="v-pills-home-tab" onclick=($('#joinUser').modal('show')) data-toggle="pill" role="tab" href='#${res.name}'
+        $('#searchList').html(`<li class="list-group-item text-left p-0" onclick="$('#collapseSearch').collapse('hide')"> 
+        <a class="nav-link openroom" id="v-pills-home-tab" data-toggle="pill" role="tab" href='#${res.name}'
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between px-1">
             <span> ${res.name} </span>
-            <span class="badge badge-pilsl badge-danger d-flex align-items-center">1</span>
           </div>
         </a>
         </li>`);
@@ -34,6 +32,5 @@ searchButton.addEventListener('click', () => {
     })
     .catch(err => {
       console.log(err);
-    })
-
+    });
 })
