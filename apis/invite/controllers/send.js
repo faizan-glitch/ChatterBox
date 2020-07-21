@@ -17,8 +17,9 @@ const sendController = (req, res) => {
     .then(response => {      
       const [room, user] = response; 
       if(!(room && user)) {
-        return res.status(404).send();
+        return res.status(404).redirect('/app');
       }     
+      res.status(200).redirect('/app');
       Email.to = user.email;
       Email.subject = 'Invitation to join Room';
       Email.html = `
@@ -26,9 +27,6 @@ const sendController = (req, res) => {
       <p>This is an automated email sent by ChatterBox</p>
       `;
       return transporter.sendMail(Email);
-    })
-    .then(mailStatus => {     
-      return res.status(200).redirect('/app');  
     });
 };
 

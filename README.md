@@ -38,3 +38,10 @@ To give access to this app.
     npm start
     ```
 The app should now be running.
+
+### NPM Scripts
+  *Clean
+  ```properties
+  npm run clean
+  ```
+  Nodemon has a bug in linux that sometimes it doesn't free the port before restarting the app. Thus the new process conflicts with the old process and gives Port already in use error. Instead of manually checking for what port the node process is using via **lsof -i -P -n | grep node** and then manually killing it with **kill -9 [process-ID]**. Just run this script and it will automate everything.   
