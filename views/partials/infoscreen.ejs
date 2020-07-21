@@ -1,5 +1,7 @@
 <div class="" style="background-color: #212121; height: 100vh !important; width: 100% !important;">
   <%- include('./invitemodal.ejs', {"room": room}) %>
+  <%- include('./leavemodal.ejs', {"room": room}) %>
+
   <div class="row d-flex justify-content-between mx-2 align-items-center mt-2">
     <div class="col text-left">
       <div class="">Details</div>
@@ -25,7 +27,7 @@
       <p class="text-muted">Search</p>
     </div>
     <div class="col">
-      <button class="btn rounded text-success bg-dark">
+      <button class="btn rounded text-success bg-dark" data-toggle="modal" data-target="#leaveRoom<%= room.name %>">
         <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
       </button>
       <p class="text-muted">Leave</p>
