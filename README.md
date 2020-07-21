@@ -40,7 +40,7 @@ To give access to this app.
 The app should now be running.
 
 ### NPM Scripts
-  *Clean
+  * Clean
   ```properties
   npm run clean
   ```
