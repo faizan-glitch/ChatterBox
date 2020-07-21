@@ -112,6 +112,9 @@ socketIO.on('connection', (socket) => {
 
   //recieve chat message
   socket.on('chatmsg', data => {
+    if(data === '') {
+      return;
+    }
     socketIO.emit('message', data);
   });
 });

@@ -16,6 +16,9 @@ const socket = io('ws://localhost:5000');
   //Sent messages
   function sendMessage(event,room_name) {
     let msg = document.getElementById(room_name+'_messaage').value;
+    if(msg === '') {
+      return;
+    }
 
     // send message
     socket.emit('chatmsg', { user: username , message : msg, time: Date.now() , roomname: room_name } );
