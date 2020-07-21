@@ -1,23 +1,13 @@
 <div class="h-100 w-100 d-flex-column mt-3">
-
   <div class="row justify-content-between d-flex">
     <div class="col-1 mt- d-flex justify-content-left">
-      <!-- <a href='/app' class="d-sm-none btn px-0 mr-3 goback" title="Go Back"> <i class="fa fa-arrow-left"
-          aria-hidden="true"></i></a> -->
-
-      <button class="d-sm-none btn px-0 mr-3" id="go-back<%= room.name %>" onclick="helloworld()" title="Go Back" data-toggle="collapse" data-toggle="#sidepane"> <i class="fa fa-arrow-left"
-          aria-hidden="true"></i></button>
+      <button class="d-sm-none btn px-0 mr-3" id="go-back<%= room.name %>" onclick="helloworld()" title="Go Back"
+        data-toggle="collapse" data-toggle="#sidepane"> <i class="fa fa-arrow-left" aria-hidden="true"></i></button>
       <h4 class="mb-0 pt-1"><%= room.name %></h4>
     </div>
-
     <ul class="nav ">
-
-      <!-- <li class="nav-item">
-        <a class="nav-link active" href="#inviteUser" title="Invite a friend" data-toggle="modal"> <i class="fa fa-user-friends"
-            aria-hidden="true"></i></a>
-      </li> -->
       <li class="nav-item">
-        <a class="nav-link" href="" data-toggle="tooltip" title="Leave this chat" > <i class="fa fa-sign-out-alt"
+        <a class="nav-link" href="" data-toggle="tooltip" title="Leave this chat"> <i class="fa fa-sign-out-alt"
             aria-hidden="true"></i></a>
       </li>
       <li class="nav-item">
@@ -29,42 +19,26 @@
             aria-hidden="true"></i></a>
       </li>
     </ul>
-
-
   </div>
   <hr class="bg-light">
   <div class="">
     <div class="text-left">
-
-      <!-- <h3>Messages:</h3> -->
-
-      <!-- messages -->
-      <div class="d-flex flex-column mb-3 messages" id="<%=room.name%>_messages" >
+      <div class="d-flex flex-column mb-3 messages" id="<%=room.name%>_messages">
         <% room.messages.forEach(message => { %>
-
         <div class="msg"> Username:
           <i class="time"> 00:00am </i>
           <p class="message"> <%= message %> </p>
-
         </div>
-
         <% }) %>
       </div>
-
     </div>
-
-
-    <!-- type Message in chat area -->
     <%- include('../partials/sendmessage', { "roomname": room.name }) %>
-
   </div>
 </div>
 
 <script>
-  let helloworld = () => {    
-    // console.log("HEllo");
+  let helloworld = () => {
     $('.mainpan').collapse('hide');
     $('#sidepane').collapse('show');
-    // $('#sidepane').css({'z-index': 1})
   }
 </script>

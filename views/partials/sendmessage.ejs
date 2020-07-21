@@ -1,16 +1,17 @@
 <form class="<%= room.name %>" id="<%= room.name %>_sendmessage" onsubmit="sendMessage(event,'<%= room.name %>')">
-    <div class="row">
-        <div class="col-9 col-sm-10">
-            <input type="text" name="message" id="<%= room.name %>_messaage" class="form-control bg-secondary text-white" placeholder="Write a message" autocomplete="off">
-        </div>
-        <div class="col-3 col-sm-2" >
-            <button name="button" class="btn btn-success w-100">
-                <i class="fa fa-paper-plane" aria-hidden="true"></i>
-            </button>
-        </div>
+  <div class="row">
+    <div class="col-9 col-sm-10">
+      <input type="text" name="message" id="<%= room.name %>_messaage" class="form-control bg-secondary text-white"
+        placeholder="Write a message" autocomplete="off">
     </div>
+    <div class="col-3 col-sm-2">
+      <button name="button" class="btn btn-success w-100">
+        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
 </form>
 
-<script>$(".<%= room.name %>").submit(function(e) {
-    e.preventDefault();
-});</script>
+<script>
+  $(".<%= room.name %>").submit(e => e.preventDefault());
+</script>

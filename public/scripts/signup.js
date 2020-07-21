@@ -27,13 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingSpinner.classList.add('d-none');
         alertMessage.innerText = res.statusText;
         alert.classList.remove('d-none');
-        console.log(res);
       })
       .catch(err => {
         loadingSpinner.classList.add('d-none');
         alertMessage.innerText = err.statusText;
         alert.classList.remove('d-none');
-        console.log(err);
       })
   });
 });

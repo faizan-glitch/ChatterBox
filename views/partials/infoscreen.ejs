@@ -1,7 +1,6 @@
 <div class="" style="background-color: #212121; height: 100vh !important; width: 100% !important;">
   <%- include('./invitemodal.ejs', {"room": room}) %>
   <%- include('./leavemodal.ejs', {"room": room}) %>
-
   <div class="row d-flex justify-content-between mx-2 align-items-center mt-2">
     <div class="col text-left">
       <div class="">Details</div>
@@ -12,7 +11,6 @@
     </div>
   </div>
   <hr class="bg-light">
-
   <div class="row mx-2 ">
     <div class="col">
       <button class="btn rounded text-success bg-dark" data-toggle="modal" data-target="#inviteUser<%= room.name %>">
@@ -31,7 +29,6 @@
         <i class="fa fa-sign-out-alt" aria-hidden="true"></i>
       </button>
       <p class="text-muted">Leave</p>
-
     </div>
     <div class="col">
       <button class="btn rounded text-success bg-dark">
@@ -40,9 +37,6 @@
       <p class="text-muted ">More</p>
     </div>
   </div>
-
-  <!-- <hr class="bg-light"> -->
-
   <div class="w-100">
     <ul class="list-group">
       <li class="list-group-item border-gray p-0 m-0" style="border-radius: 0 !important;">
@@ -53,34 +47,30 @@
               style="border-radius: 0 !important;">
               About
             </button>
-
-
-            <div id="collapseAbout" class="collapse hide" aria-labelledby="headingOne" >
+            <div id="collapseAbout" class="collapse hide" aria-labelledby="headingOne">
               <div class="card-body text-left text-muted py-2">
                 <%= room.description %>
               </div>
             </div>
           </div>
-
       </li>
       <li class="list-group-item  border-gray p-0 m-0" style="border-radius: 0 !important;">
         <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
           <div class="card" style="background-color: #212121;">
-            <button class="btn btn-block text-left w-100 h-100  d-flex justify-content-between align-items-center" type="button" data-toggle="collapse"
-              data-target="#collapseMembers" aria-expanded="true" aria-controls="collapseOne" style="border-radius: 0 !important;">
+            <button class="btn btn-block text-left w-100 h-100  d-flex justify-content-between align-items-center"
+              type="button" data-toggle="collapse" data-target="#collapseMembers" aria-expanded="true"
+              aria-controls="collapseOne" style="border-radius: 0 !important;">
               Members
               <span class="badge badge-primary badge-pill">
-                <%= room.members.length %> 
+                <%= room.members.length %>
               </span>
             </button>
-
-
             <div id="collapseMembers" class="collapse hide" aria-labelledby="headingOne"
               data-parent="#accordionExample">
               <div class="card-body text-left text-muted py-2">
-               <% room.members.forEach(member => { %>
+                <% room.members.forEach(member => { %>
                 <div> <%= member.displayName %></div>
-               <% }) %>
+                <% }) %>
               </div>
             </div>
           </div>
@@ -88,13 +78,11 @@
       <li class="list-group-item  border-gray  p-0 m-0" style="border-radius: 0 !important;">
         <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
           <div class="card" style="background-color: #212121;">
-
             <button class="btn btn-block text-left w-100 h-100" type="button" data-toggle="collapse"
-              data-target="#collapsePinned" aria-expanded="true" aria-controls="collapseOne" style="border-radius: 0 !important;">
+              data-target="#collapsePinned" aria-expanded="true" aria-controls="collapseOne"
+              style="border-radius: 0 !important;">
               Pinned
             </button>
-
-
             <div id="collapsePinned" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body text-muted text-left py-2">
                 <span>Lorem ipsum dolor sit amet consectetur.</span>
@@ -102,23 +90,22 @@
             </div>
           </div>
       </li>
-
-      <li class="list-group-item  border-gray p-0 m-0" style="background-color: #212121 !important; border-radius: 0 !important;">
+      <li class="list-group-item  border-gray p-0 m-0"
+        style="background-color: #212121 !important; border-radius: 0 !important;">
         <div class="accordion" id="accordionExample" style="border-radius: 0 !important;">
           <div class="card" style="background-color: #212121;">
-
             <button class="btn btn-block text-left w-100 h-100" type="button" data-toggle="collapse"
-              data-target="#collapseFiles" aria-expanded="true" aria-controls="collapseOne" style="border-radius: 0 !important;">
+              data-target="#collapseFiles" aria-expanded="true" aria-controls="collapseOne"
+              style="border-radius: 0 !important;">
               Files
             </button>
-
-
             <div id="collapseFiles" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body text-muted text-left py-2">
                 <span>Lorem ipsum dolor sit amet consectetur.</span>
               </div>
             </div>
           </div>
+        </div>
       </li>
     </ul>
   </div>

@@ -11,7 +11,6 @@ const csrfProtection = csrf();
 router.use(csrfProtection);
 
 router.get('/login', (req, res) => {
-  // console.log(req.flash())
   res.render(path.join(__dirname, 'views', 'pages', 'auth', 'login'), {
     activeTab: 'Login',
     csrfToken: req.csrfToken(),

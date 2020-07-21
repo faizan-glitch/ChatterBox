@@ -36,7 +36,6 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/app', authGuard, async (req, res) => {
-  // console.log(JSON.stringify(req.user));
   const rooms = await Room.find({members: {_id: req.user._id }})
     .populate({ path: 'members', select:'displayName'})
   res.render(path.join(__dirname, 'views', 'pages', 'app'), {
@@ -51,12 +50,3 @@ router.get('/app', authGuard, async (req, res) => {
 router.post('/test', (req, res) => {
   res.render(path.join(__dirname, 'views', 'pages', 'test'));
 });
-
-
-// For testing
-// router.get('/upgrade', (req, res) => {
-//   res.render(path.join(__dirname, 'views', 'pages', 'upgrade'), {
-//     activeTab: 'Upgrade',
-//     csrfToken: req.csrfToken()
-//   });
-// });

@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
       .then(res => {
-        console.log(res);
         loadingSpinner.classList.add('d-none');
         if (res.status == 200) {
           window.location.assign(res.url);
