@@ -9,7 +9,7 @@ const socket = io('ws://localhost:5000');
     showInChat(data);
 
     //scroll down to see the message
-    $("#"+data.roomname+"_messages").scrollTop(1000);
+    $("#"+data.roomname+"_messages").scrollTop($("#"+data.roomname+"_messages").prop('scrollHeight'));
   });
 
 
