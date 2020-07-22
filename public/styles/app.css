@@ -62,6 +62,10 @@ body,html{
   margin-left: 2%;
 }
 
+li a .row.justify-content-between.px-1:hover {
+  background-color: none;
+}
+
 #chatrooms li{ padding: 0.5rem; }
 .mainpage{ flex-direction: row-reverse; height: 88vh; align-items: center; padding-top: 1rem;}
 
@@ -71,18 +75,11 @@ body,html{
 ::-webkit-scrollbar-thumb:hover { background: #555; }
 
 @media only screen and (max-width: 800px) {
-  /* .headings{display: none;} */
   .b-r{display: none;}
-  /* .online-users{flex-direction: row-reverse; } */
-  /* .message{ width: 100%; } */
   .mainpage{ flex-direction: column; justify-content: space-around;}
   .col{width: 100%;}
   #sidepane{ position: absolute; }
   .messages{ height: 75vh; }
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .fabBtn-wrapper {
