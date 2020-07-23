@@ -5,6 +5,7 @@ import authGuard from '../services/auth/authGuard.js';
 import keys from '../config/keys.js';
 
 import Room from '../models/Room.js';
+import Message from '../models/Message.js';
 
 export const router = Express.Router();
 
@@ -38,6 +39,7 @@ router.get('/about', (req, res) => {
 router.get('/app', authGuard, async (req, res) => {
   const rooms = await Room.find({members: {_id: req.user._id }})
     .populate({ path: 'members', select:'displayName'})
+  // const messages = await Message.find({recipient_id: { all room ids??? }})
   res.render(path.join(__dirname, 'views', 'pages', 'app'), {
     activeTab: 'App',
     csrfToken: req.csrfToken(),

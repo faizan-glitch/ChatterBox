@@ -4,6 +4,7 @@ import { router as AuthRoutes } from './routes/auth.js';
 import { router as AuthAPI } from './apis/auth/auth.js';
 import { router as PaymentsAPI } from './apis/payments/stripe.js';
 import { router as RoomAPI } from './apis/room/room.js';
+import { router as MessageAPI } from './apis/message/message.js';
 import { router as InviteAPI } from './apis/invite/invite.js'; 
 import keys from './config/keys.js';
 import session from 'express-session';
@@ -75,6 +76,9 @@ app.use('/payments', PaymentsAPI);
 
 // Use Room API
 app.use('/room', RoomAPI);
+
+// Use Message API
+app.use('/message', MessageAPI);
 
 // Use Invite API
 app.use('/invite', InviteAPI);
