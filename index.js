@@ -123,7 +123,6 @@ socketIO.on('connection', (socket) => {
     if(data === '') {
       return;
     }
-    // console.log(data);
     socketIO.emit('message', data);
     const message = new Message({
       sender_id: Schema.Types.ObjectId(data.user),
@@ -133,8 +132,6 @@ socketIO.on('connection', (socket) => {
     });
     message.save()
     .then(msg =>{
-      console.log('Message saved');
-      console.log(msg);
       Room.findById(data.roomID)
       .then(room => {
         room.messages.push(Schema.Types.ObjectId(msg._id));
