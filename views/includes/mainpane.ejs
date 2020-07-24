@@ -7,7 +7,7 @@
         <!-- We can pass objects to child views like this -->
         <%- include('../partials/chatscreen.ejs', { "room": room }) %>
       </div>
-      <div class="col-sm-3 p-0 m-0" style="background-color: #212121;">
+      <div class="col-sm-3 p-0 m-0 d-none d-sm-block" style="background-color: #212121;">
         <%- include('../partials/infoscreen.ejs', { "room": room }) %>
       </div>
     </div>
