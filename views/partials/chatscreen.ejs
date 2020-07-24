@@ -25,9 +25,9 @@
     <div class="text-left">
       <div class="d-flex flex-column mb-3 messages" id="<%=room.name%>_messages">
         <% room.messages.forEach(message => { %>
-        <div class="msg"> Username:
-          <i class="time"> 00:00am </i>
-          <p class="message"> <%= message %> </p>
+        <div class="msg"> <%= message.sender_name %>:
+          <i class="time"> <%= message.timestamp.getHours() + ':' + message.timestamp.getMinutes() %> </i>
+          <p class="message"> <%= message.data %> </p>
         </div>
         <% }) %>
       </div>

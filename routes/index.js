@@ -39,6 +39,7 @@ router.get('/about', (req, res) => {
 router.get('/app', authGuard, async (req, res) => {
   const rooms = await Room.find({members: {_id: req.user._id }})
     .populate({ path: 'members', select:'displayName'})
+    .populate({ path: 'messages'});
   // const messages = await Message.find({recipient_id: { all room ids??? }})
   res.render(path.join(__dirname, 'views', 'pages', 'app'), {
     activeTab: 'App',
