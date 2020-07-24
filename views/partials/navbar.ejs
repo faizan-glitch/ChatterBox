@@ -24,9 +24,29 @@
             active bg-primary rounded
            <% } %>' href='/contact'>Contact Us</a>
         </li>
+
+        <li class='nav-item d-sm-none'>
+          <a class='nav-link <% if (activeTab == 'Login') { %>
+            active bg-primary rounded
+           <% } %>' href='/login'>Login</a>
+        </li>
+
+        <li class='nav-item d-sm-none'>
+          <a class='nav-link <% if (activeTab == 'Sign Up') { %>
+            active bg-primary rounded
+           <% } %>' href='/signup'>Sign Up</a>
+        </li>
+
+        <li class='nav-item d-sm-none'>
+          <a class='nav-link <% if (activeTab == 'Reset') { %>
+            active bg-primary rounded
+           <% } %>' href='/reset'>Forgot Password</a>
+        </li>
+
+        
       </ul>
 
-      <div class='dropdown'>
+      <div class='dropdown d-none d-sm-block'>
         <button class=' dropdown-toggle btn btn-primary text-white' href='#' id='navbarDropdown' role='button'
           data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
           <% if (locals.user) { %>
