@@ -26,7 +26,7 @@
       <div class="d-flex flex-column mb-3 messages" id="<%=room.name%>_messages">
         <% room.messages.forEach(message => { %>
         <div class="msg"> <%= message.sender_name %>:
-          <i class="time"> <%= message.timestamp.getHours() + ':' + message.timestamp.getMinutes() %> </i>
+          <i class="time"> <%= message.timestamp.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});%> </i>
           <p class="message"> <%= message.data %> </p>
         </div>
         <% }) %>
