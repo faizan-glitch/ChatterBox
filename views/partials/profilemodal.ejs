@@ -1,0 +1,65 @@
+<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="profile" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profile">Your Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form action="" method="POST">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+          <div class="form-row">
+            <div class="col-8">
+              <input type="text" class="form-control bg-secondary text-white" placeholder="Username" name="name" value="<%= user.displayName %>">
+            </div>
+          </div>
+          <div class="form-row mt-3">
+            <div class="col">
+              <input type="password" class="form-control bg-secondary text-white" placeholder="Password" name="password"
+                value="">
+            </div>
+            <div class="col">
+              <input type="password" class="form-control bg-secondary text-white" placeholder="Confirm Password"
+                name="confirmPassword" value="">
+            </div>
+          </div>
+
+          <div class="form-row mt-3">
+            <div class="col text-left">
+              <textarea name="description" id="description" cols="30" rows="3"
+                class="form-control bg-secondary text-white" placeholder="Room Description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-row mt-3">
+            <div class="col text-left">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input w-100" id="customFile" />
+                <label class="custom-file-label bg-dark" for="customFile">Room Display Picture</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row mt-3">
+            <div class="col text-left">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="ageRestricted">
+                <label class="custom-control-label" for="customCheck1">Age Restricted.</label>
+                <p class="text-muted"> Only 18+ members will be allowed to join </p>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
