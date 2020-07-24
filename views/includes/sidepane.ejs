@@ -108,10 +108,10 @@
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
               <!-- Button trigger modal -->
               <% if (user.plan === 'free') { %>
-              <button class="dropdown-item" id="upgradePlanBtn"> Upgrade your
+              <button class="dropdown-item mb-1" id="upgradePlanBtn"> Upgrade your
                 plan <i class="fa fa-level-up-alt" aria-hidden="true"></i> </button>
               <% } %>
-              <button class="dropdown-item" data-toggle="modal" data-target="#profile"> Profile </button>
+              <button class="dropdown-item d-flex justify-content-between" data-toggle="modal" data-target="#profile"><span>Profile</span>  <i class="fa fa-user" aria-hidden="true"></i> </button>
             </div>
           </div>
         </div>

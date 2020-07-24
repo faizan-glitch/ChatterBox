@@ -4,8 +4,6 @@ const logoutController = (req, res) => {
   if (!req.user) {
     return res.status(400).redirect('/');
   }
-  req.logout();
-  res.status(200).redirect('/');
   User.updateOne(
     { _id: req.user._id },
     {
@@ -14,6 +12,10 @@ const logoutController = (req, res) => {
       }
     }
   )
+    .then(user => {
+      req.logout();
+      res.status(200).redirect('/');
+    })
     .catch(err => {
       res.status(500).redirect('/');
     });
