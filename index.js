@@ -4,7 +4,8 @@ import { router as AuthRoutes } from './routes/auth.js';
 import { router as AuthAPI } from './apis/auth/auth.js';
 import { router as PaymentsAPI } from './apis/payments/stripe.js';
 import { router as RoomAPI } from './apis/room/room.js';
-import { router as InviteAPI } from './apis/invite/invite.js'; 
+import { router as MessageAPI } from './apis/message/message.js';
+import { router as InviteAPI } from './apis/invite/invite.js';
 import keys from './config/keys.js';
 import session from 'express-session';
 import bodyParser from 'body-parser';
@@ -18,6 +19,10 @@ import helmet from 'helmet';
 import flash from 'connect-flash';
 import http from 'http';
 import io from 'socket.io';
+import Message from './models/Message.js';
+import Room from './models/Room.js';
+import Schema from 'mongoose';
+import logoutController from './apis/auth/controllers/logout.js';
 
 dotenv.config();
 
@@ -76,6 +81,9 @@ app.use('/payments', PaymentsAPI);
 // Use Room API
 app.use('/room', RoomAPI);
 
+// Use Message API
+app.use('/message', MessageAPI);
+
 // Use Invite API
 app.use('/invite', InviteAPI);
 
@@ -116,6 +124,21 @@ socketIO.on('connection', (socket) => {
       return;
     }
     socketIO.emit('message', data);
+    const message = new Message({
+      sender_id: Schema.Types.ObjectId(data.user),
+      sender_name: data.username,
+      data: data.message,
+      recipient_id: Schema.Types.ObjectId(data.roomID)
+    });
+    message.save()
+    .then(msg =>{
+      Room.findById(data.roomID)
+      .then(room => {
+        room.messages.push(Schema.Types.ObjectId(msg._id));
+        room.save();
+      })
+    })
+    .catch(err => console.log(err));
   });
 });
 

@@ -12,7 +12,7 @@ const createController = (req, res) => {
   });
   newRoom.save()
     .then(room => {
-      console.log(room);
+      // console.log(room);
       res.status(200).redirect('/app');
     })
     .catch(err => console.log(err)

@@ -7,6 +7,10 @@ const MessageSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User'
   },
+  sender_name: {
+    type: String,
+    required: true
+  },
   data: {
     type: String,
     required: true,
@@ -18,7 +22,6 @@ const MessageSchema = new Schema({
   recipient_id: {
     type: Schema.Types.ObjectId,
     ref: 'Room',
-    enum: ['Room', 'Channel']
   }
 });
 

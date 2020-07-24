@@ -29,8 +29,7 @@ const RoomSchema = new Schema({
     default: Date.now()
   },
   messages: {
-    type: Array,
-    default: ["Hello", "World", "Musicaspidnasind aisnd ", "asoidnaio sndasiodn", "asdmapsodm apsodm pasmd po" ]
+    type: [{ type: Schema.Types.ObjectId, ref: 'Message' }]
   },
   members: {
     type: [{ type: Schema.Types.ObjectId, ref: 'User' }]

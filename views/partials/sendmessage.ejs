@@ -1,4 +1,4 @@
-<form class="<%= room.name %>" id="<%= room.name %>_sendmessage" onsubmit="sendMessage(event,'<%= room.name %>')">
+<form class="<%= room.name %>" id="<%= room.name %>_sendmessage" onsubmit="sendMessage(event,'<%= room._id %>', '<%= room.name %>' )">
   <div class="row">
     <div class="col-9 col-sm-10">
       <input type="text" name="message" id="<%= room.name %>_messaage" class="form-control bg-secondary text-white"
