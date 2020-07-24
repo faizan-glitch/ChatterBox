@@ -1,3 +1,4 @@
+<%- include('../partials/profilemodal.ejs') %>
 <div class="w-100 h-100 pt-4 justify-content-between d-flex flex-column">
   <div id="sidepane-header">
 
@@ -110,6 +111,7 @@
               <button class="dropdown-item" id="upgradePlanBtn"> Upgrade your
                 plan <i class="fa fa-level-up-alt" aria-hidden="true"></i> </button>
               <% } %>
+              <button class="dropdown-item" data-toggle="modal" data-target="#profile"> Profile </button>
             </div>
           </div>
         </div>
