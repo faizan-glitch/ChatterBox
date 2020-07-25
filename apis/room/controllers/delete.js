@@ -17,14 +17,15 @@ const deleteRoomsByUserID = async (req, res) => {
   res.status(200).send(result);
 };
 
-const deleteUserFromRoom = async (req, res) => {
-  if (!req.isAuthenticated() || req.user._id !== req.body.userID) {
+const deleteUserFromRoom = async (req, res) => {  
+  if (!(req.isAuthenticated() && req.user._id == req.body.userID)) {
     return res.status(403).send();
   }
   const result = await Room.findById({ _id: req.body.roomID });
+  
   result.members.pull({ _id: req.body.userID });
-  res.status(200).send();
   result.save();
+  res.status(200).send();
 };
 
 export default {
