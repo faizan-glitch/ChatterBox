@@ -22,7 +22,6 @@ import io from 'socket.io';
 import Message from './models/Message.js';
 import Room from './models/Room.js';
 import Schema from 'mongoose';
-import logoutController from './apis/auth/controllers/logout.js';
 
 dotenv.config();
 

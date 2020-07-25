@@ -25,16 +25,13 @@ const sendEmail = (req, res) => {
             return res.status(401).send();
           }
           else {
-            console.log(info);
-            req.flash('message', 'Email has been sent.');
-            return res.status(200).send();
+            return res.status(200).json({message: 'Email has been sent.'});
           }
         });
       }
       else {
-        return res.status(404).send();
+        return res.status(404).json({message: 'This email doesn\'t exist.'});
       }
-      console.log('helo world')
     })
     .catch(err => console.log(err));
 };

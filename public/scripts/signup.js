@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alertMessage.innerText = err.message;
         alert.classList.remove('d-none');
         console.log(err);
-        
-      })
+      });
   });
 });
