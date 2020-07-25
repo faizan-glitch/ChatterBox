@@ -42,7 +42,6 @@ app.use(helmet());
 
 // Set Static Folders
 app.use(Express.static(path.join(__dirname, 'public')));
-app.use(Express.static(path.join(__dirname, 'vendors')));
 app.use(Express.static(path.join(__dirname, 'node_modules')));
 
 // Parse application/x-www-form-urlencoded
