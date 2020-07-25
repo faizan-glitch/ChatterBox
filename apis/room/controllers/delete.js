@@ -18,12 +18,15 @@ const deleteRoomsByUserID = async (req, res) => {
 };
 
 const deleteUserFromRoom = async (req, res) => {  
-  if (!(req.isAuthenticated() && req.user._id == req.body.userID)) {
+
+  if (!(req.isAuthenticated() && req.user._id == req.body.user._id)) {
     return res.status(403).send();
   }
-  const result = await Room.findById({ _id: req.body.roomID });
+  const result = await Room.findById({ _id: req.body.room._id });
   
-  result.members.pull({ _id: req.body.userID });
+  socket.emit('disconnect', { user: req.body.user , roomname: req.body.room } );
+
+  result.members.pull({ _id: req.body.user._id });
   result.save();
   res.status(200).send();
 };

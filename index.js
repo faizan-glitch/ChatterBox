@@ -112,8 +112,12 @@ socketIO.on('connection', (socket) => {
   socket.broadcast.emit('message',  {user: 'Bot' , message: 'A user has joined this Chat' , time: Date.now() , room: 'General'});
 
   //when a user disconnects
-  socket.on('disconnect', () =>{
-    socketIO.emit('message', {user: 'Bot' , message: 'A user has left this chat' , time: Date.now() , room: 'General'})
+  socket.on('disconnect', (data) =>{
+    console.log('hereToo');
+    let diss = data.user +' has left this chat' ;
+    console.log(diss);
+    console.log(data.room );
+    socketIO.emit('message', { user: 'Bot' , message: diss , time: Date.now(), roomname: data.room })
   });
 
   //recieve chat message

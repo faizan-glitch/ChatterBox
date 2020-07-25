@@ -31,8 +31,8 @@
         'CSRF-Token': '<%= csrfToken %>'
       },
       body: JSON.stringify({
-        userID: '<%= user.id %>',
-        roomID: '<%= room.id %>'
+        user: '<%= user %>',
+        room: '<%= room %>',
       })
     })
     .then(res => {
