@@ -24,6 +24,8 @@ const socket = io('ws://localhost:5000');
     //empty msg feild
     event.target.message.value = '';
     event.target.message.focus();
+    $('#such-empty-' + room_name).addClass('d-none');
+    $('#such-empty-' + room_name).removeClass('d-flex');
 
   }
 
@@ -34,6 +36,5 @@ const socket = io('ws://localhost:5000');
     const mydiv = document.createElement('div');
     mydiv.classList.add('msg');
     mydiv.innerHTML = data.username + ": <i class='time'> " + current_time + " </i> <p class='message'>" + data.message + " </p>" ;
-    
     $("#"+data.roomname+"_messages").append(mydiv);
   }

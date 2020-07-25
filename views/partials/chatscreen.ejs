@@ -20,6 +20,11 @@
   <div class="">
     <div class="text-left">
       <div class="d-flex flex-column mb-3 messages" id="<%=room.name%>_messages">
+        <% if (room.messages.length <= 0) { %>
+          <div class="d-flex justify-content-center" id="such-empty-<%= room.name %>">
+            <h4>Wow, Such Empty</h4>
+          </div>
+        <% } %>
         <% room.messages.forEach(message => { %>
         <div class="msg"> <%= message.sender_name %>:
           <i class="time"> <%= message.timestamp.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});%> </i>
