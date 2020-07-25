@@ -1,9 +1,7 @@
 <%- include('../../includes/head') %>
 </head>
-
 <body>
   <%- include('../../partials/navbar') %>
-  
   <div class='container d-flex flex-column justify-content-center align-items-center full-nav'>
     <div class="d-flex-column">
       <%- include('../../partials/alert') %>
@@ -34,7 +32,6 @@
                   name='password'>
               </div>
             </div>
-
           </form>
           <div class='d-flex justify-content-center w-100'>
             <button type='submit' class='btn btn-success w-100' id='signupBtn'>
@@ -42,7 +39,6 @@
               <%- include('../../partials/loadingSpinner') %>
             </button>
           </div>
-
           <div class="text-center mt-2">
             <p>Already have an account? <a href="/login">Login</a></p>
           </div>

@@ -1,29 +1,21 @@
 <%- include('../includes/head') %>
-
 <body>
-  
   <%- include('../partials/appmodal') %>
-
   <div class="container-fluid d-flex justify-content-start px-0 mx-0 w-100" id="app-container">
-
     <div id="sidepane" class="col-md-2 px-0 mx-0 show h-100 collapse">
       <%- include('../includes/sidepane')%>
     </div>
-
     <div class="w-100 collapse fade show mainpan">
       <%- include('../includes/mainpane')%>
     </div>
   </div>
-
 </body>
-
 <%- include('../includes/end') %>
 <script src="socket.io-client/dist/socket.io.js"></script>
 <script>
   const userID = `<%= user._id %>`;
   const username = `<%= user.displayName %>`;
   var stripePublicKey = '<%= stripePublicKey %>';
-
 </script>
 <script defer src="scripts/stripe.js"></script>
 <script src="scripts/app.js"></script>

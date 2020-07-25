@@ -1,7 +1,6 @@
 <%- include('../partials/profilemodal.ejs') %>
 <div class="w-100 h-100 pt-4 justify-content-between d-flex flex-column">
   <div id="sidepane-header">
-
     <div id="search" class="w-100 px-3" style="position: absolute !important;">
       <div class="input-group  ">
         <input type="text" class="form-control bg-dark text-white" id="searchInput" autocomplete="off">
@@ -23,7 +22,6 @@
         </div>
       </div>
     </div>
-
     <div class="d-flex justify-content-between mx-3 mt-5 align-items-center">
       <a class="text-muted h5" data-toggle="collapse" href="#pinnedChats" role="button" aria-expanded="false"
         aria-controls="pinnedChats">
@@ -66,29 +64,7 @@
         <% }) %>
       </div>
     </div>
-
-
-    <div class="d-flex justify-content-between mx-3 mt-3">
-      <a class="text-muted h5" data-toggle="collapse" href="#channelsList" role="button" aria-expanded="false"
-        aria-controls="collapseExample">
-        Channels
-      </a>
-      <p> <i class="fa fa-plus" aria-hidden="true"></i></p>
-    </div>
-
-    <div class="collapse" id="channelsList">
-      <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link " id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-          aria-controls="v-pills-home" aria-selected="true">
-          <div class="row justify-content-between">
-            <span>Channel 1</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
   </div>
-
   <div class="bg-secondary" id="sidepane-footer">
     <div class="d-flex justify-content-between align-items-center mx-2">
       <div class="">
