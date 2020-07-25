@@ -30,11 +30,17 @@ const socket = io('ws://localhost:5000');
   }
 
   function showInChat(data){
+    console.log(data);
+    
     let time = new Date(data.time);
     let current_time = time.toLocaleString('en-US',{hour:'numeric',minute:'numeric',hour12:true});
     
     const mydiv = document.createElement('div');
     mydiv.classList.add('msg');
-    mydiv.innerHTML = data.username + ": <i class='time'> " + current_time + " </i> <p class='message'>" + data.message + " </p>" ;
+    mydiv.innerHTML = data.username  + ": <i class='time'> " + current_time + " </i> <p class='message'>" + data.message + " </p>" ;
     $("#"+data.roomname+"_messages").append(mydiv);
+  }
+
+  function leaveRoom(event, room_id, room_name){
+    socket.emit('disc', { user: userID , username: username, roomname: room_name, roomID: room_id });
   }

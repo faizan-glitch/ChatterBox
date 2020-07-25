@@ -1,5 +1,4 @@
 import Room from '../../../models/Room.js';
-
 const deleteRoomByID = (req, res) => {
   Room.findOneAndDelete(
     {
@@ -22,7 +21,6 @@ const deleteUserFromRoom = async (req, res) => {
     return res.status(403).send();
   }
   const result = await Room.findById({ _id: req.body.roomID });
-  
   result.members.pull({ _id: req.body.userID });
   result.save();
   res.status(200).send();
