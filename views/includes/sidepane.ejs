@@ -51,16 +51,19 @@
           aria-hidden="true"></i></button>
     </div>
 
-    <div class="collapse" id="roomsList">
+    <div class="collapse show" id="roomsList">
       <div class="nav flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <% rooms.forEach(room => { %>
         <a class="nav-link openroom" style="border-radius: 0 !important;" id="v-pills-home-tab"
           onclick="goodbyeworld(event)" data-toggle="pill" role="tab" href='#<%= room.name %>'
           aria-controls="v-pills-home" aria-selected="true">
           <div class="row justify-content-between px-1">
-            <span> <%= room.name %> </span>
+            <span > <%= room.name %> </span>
           </div>
         </a>
+        <div class="d-flex justify-content-center w-100">
+          <hr class="bg-secondary w-100 my-0"/>
+        </div>
         <% }) %>
       </div>
     </div>
