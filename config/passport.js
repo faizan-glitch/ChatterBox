@@ -64,7 +64,7 @@ export default (passport) => {
                 )
               }
               else {
-                return done(null, false, { message: 'Password is incorrect.' });
+                return done(null, false, { message: 'Invalid Credentials.' });
               }
             });
         })
