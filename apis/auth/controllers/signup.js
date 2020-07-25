@@ -8,7 +8,7 @@ const signupController = (req, res) => {
   User.findOne({ email: req.body.email })
     .then(user => {
       if (user) {
-        res.status(401).send('This email already exists.');
+        res.status(401).json({message: 'This email already exists.'});        
         return;
       }
       Email.to = req.body.email;
@@ -33,12 +33,12 @@ const signupController = (req, res) => {
           Promise.race([user.save(), transporter.sendMail(Email)])
             .then(info => {
               console.log(info);
-              res.status(201).send();
+              res.status(201).json({message: 'Success: Now verify your email.'});
               return;
             })
             .catch(err => {
               console.log(err);
-              res.status(403).send('Account Creation Failed');
+              res.status(403).json({message: 'Account Creation Failed'});
               return;
             });
         });

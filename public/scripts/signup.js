@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let passwordField = document.getElementById('passwordField');
   let signupBtn = document.getElementById('signupBtn');
   let loadingSpinner = document.getElementById('loadingSpinner');
-  let alert = document.getElementById('alert');
+  let alert = document.getElementById('alert2');
   let alertMessage = document.getElementById('alert-message');
 
   signupBtn.addEventListener('click', () => {
@@ -25,13 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
     })
       .then(res => {
         loadingSpinner.classList.add('d-none');
-        alertMessage.innerText = res.statusText;
+        return res.json();        
+      })
+      .then(res => {
+        console.log(res);
+        alertMessage.innerText = res.message;
         alert.classList.remove('d-none');
       })
       .catch(err => {
         loadingSpinner.classList.add('d-none');
-        alertMessage.innerText = err.statusText;
+        alertMessage.innerText = err.message;
         alert.classList.remove('d-none');
+        console.log(err);
+        
       })
   });
 });

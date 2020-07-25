@@ -21,7 +21,8 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render(path.join(__dirname, 'views', 'pages', 'auth', 'signup'), {
     activeTab: 'Signup',
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    message: undefined
   });
 });
 
