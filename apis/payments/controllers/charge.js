@@ -5,16 +5,12 @@ const stripe = Stripe(keys.STRIPE.SECRET_KEY);
 
 const chargeController = (req, res) => {
   const token = req.body.stripeTokenId;
-
   const charge = stripe.charges.create({
     amount: 500,
     currency: 'usd',
     source: token
   })
     .then((payment) => {
-      console.log('Charge Successful');
-      console.log(payment.id);
-      
       req.user.updateOne({
         $set: {
           plan: 'premium',
@@ -22,8 +18,6 @@ const chargeController = (req, res) => {
         }
       })
         .then(user => {
-          console.log(user);
-          
           res.json({ message: 'Plan upgraded successfully.' });
         })
         .catch(err => {

@@ -13,7 +13,6 @@ const verifyController = (req, res) => {
     },
   )
     .then(user => {
-      console.log(user);
       res.status(200).send('Done');
     })
     .catch(err => {

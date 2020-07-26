@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Content-Type': 'application/json',
         'CSRF-Token': csrfToken
       },
-      credentials: 'same-origin', 
+      credentials: 'same-origin',
       body: JSON.stringify({
         displayName: displayNameField.value,
         email: emailField.value,
@@ -25,10 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
       .then(res => {
         loadingSpinner.classList.add('d-none');
-        return res.json();        
+        return res.json();
       })
       .then(res => {
-        console.log(res);
         alertMessage.innerText = res.message;
         alert.classList.remove('d-none');
       })
