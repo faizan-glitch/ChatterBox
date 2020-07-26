@@ -13,7 +13,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-danger" id="leave-room<%=room.name%>">Leave</button>
+        <button type="submit" class="btn btn-danger" onclick="leaveRoom(event, '<%= room._id %>', '<%= room.name%>')" id="leave-room<%=room.name%>">Leave</button>
       </div>
     </div>
   </div>

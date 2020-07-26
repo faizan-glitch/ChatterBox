@@ -1,5 +1,4 @@
 import Room from '../../../models/Room.js';
-
 const deleteRoomByID = (req, res) => {
   Room.findOneAndDelete(
     {
@@ -22,11 +21,8 @@ const deleteUserFromRoom = async (req, res) => {
   if (!(req.isAuthenticated() && req.user._id == req.body.user._id)) {
     return res.status(403).send();
   }
-  const result = await Room.findById({ _id: req.body.room._id });
-  
-  socket.emit('disconnect', { user: req.body.user , roomname: req.body.room } );
-
-  result.members.pull({ _id: req.body.user._id });
+  const result = await Room.findById({ _id: req.body.roomID });
+  result.members.pull({ _id: req.body.userID });
   result.save();
   res.status(200).send();
 };

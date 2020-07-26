@@ -112,12 +112,10 @@ socketIO.on('connection', (socket) => {
   socket.broadcast.emit('message',  {user: 'Bot' , message: 'A user has joined this Chat' , time: Date.now() , room: 'General'});
 
   //when a user disconnects
-  socket.on('disconnect', (data) =>{
-    console.log('hereToo');
-    let diss = data.user +' has left this chat' ;
-    console.log(diss);
-    console.log(data.room );
-    socketIO.emit('message', { user: 'Bot' , message: diss , time: Date.now(), roomname: data.room })
+  socket.on('disc', (data) =>{
+    console.log("Hello from index");
+    console.log(data);
+    socketIO.emit('message', {username: 'ChatterBot' , message: `${data.username} has left this room` , time: Date.now() , roomname: data.roomname})
   });
 
   //recieve chat message
@@ -145,7 +143,12 @@ socketIO.on('connection', (socket) => {
 });
 
 // Connect with MongoDB
-mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(keys.MONGODB.URI, { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: true
+})
   .then(res => {
     server.listen(PORT, console.log(`Server running on port: ${PORT}`));
   })
