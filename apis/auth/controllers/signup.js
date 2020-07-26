@@ -19,9 +19,7 @@ const signupController = (req, res) => {
             displayName: req.body.displayName,
             email: req.body.email,
             password: hash,
-            accessToken: req.session.id,
-            gender: req.body.gender,
-            dob: req.body.dob
+            accessToken: req.session.id,  // This will later cause a very dangerous bug. Fix it with a JWT
           });
           const verificationMessage = `
                 <p>Click this <a href="${verificationURL + '?_token=' + user.accessToken}">Link</a> to verify your account.</p>
