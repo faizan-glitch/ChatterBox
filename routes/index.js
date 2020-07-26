@@ -50,6 +50,10 @@ router.get('/app', authGuard, async (req, res) => {
   });
 });
 
-router.post('/test', (req, res) => {
-  res.render(path.join(__dirname, 'views', 'pages', 'test'));
+// 404 Page
+router.get('/404', (req, res) => {
+  return res.status(404).render(path.join(__dirname, 'views', 'pages', '404'), {
+    activeTab: '404',
+    csrfToken: req.csrfToken()
+  });
 });

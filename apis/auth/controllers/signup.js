@@ -30,14 +30,11 @@ const signupController = (req, res) => {
           Email.html = verificationMessage;
           Promise.race([user.save(), transporter.sendMail(Email)])
             .then(info => {
-              console.log(info);
-              res.status(201).json({message: 'Success: Now verify your email.'});
-              return;
+              return res.status(201).json({message: 'Success: Now verify your email.'});
             })
             .catch(err => {
               console.log(err);
-              res.status(403).json({message: 'Account Creation Failed'});
-              return;
+              return res.status(403).json({message: 'Account Creation Failed'});
             });
         });
       });

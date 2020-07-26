@@ -85,14 +85,7 @@ app.use('/message', MessageAPI);
 // Use Invite API
 app.use('/invite', InviteAPI);
 
-// 404 Page
-app.get('/404', (req, res) => {
-  return res.status(404).render(path.join(__dirname, 'views', 'pages', '404'), {
-    activeTab: '404',
-    csrfToken: req.csrfToken()
-  });
-});
-
+// Any other page will get redirected to 404
 app.get('**', (req, res) => {
   res.redirect('/404');
 });
