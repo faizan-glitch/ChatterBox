@@ -143,7 +143,12 @@ socketIO.on('connection', (socket) => {
 });
 
 // Connect with MongoDB
-mongoose.connect(keys.MONGODB.URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(keys.MONGODB.URI, { 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: true
+})
   .then(res => {
     server.listen(PORT, console.log(`Server running on port: ${PORT}`));
   })
