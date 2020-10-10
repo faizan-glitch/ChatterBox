@@ -106,8 +106,6 @@ socketIO.on('connection', (socket) => {
 
   //when a user disconnects
   socket.on('disc', (data) =>{
-    console.log("Hello from index");
-    console.log(data);
     socketIO.emit('message', {username: 'ChatterBot' , message: `${data.username} has left this room` , time: Date.now() , roomname: data.roomname})
   });
 
